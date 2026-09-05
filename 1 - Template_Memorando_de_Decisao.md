@@ -25,28 +25,32 @@ O pipeline do projeto já está definido: qualquer fonte de dados precisa produz
 
 <!-- O que foi encontrado sobre um dataset real de ICMP. Cite a fonte de cada informação. -->
 
-- **Origem / link:**
-- **Formato:** 
-- **Período coberto:** 
-- **Campos disponíveis:**
-- **Licença de uso:** [ ]
+- **Origem / link:** Dataset of RTT latency internet measurements in Europe, Disponibilizado no Zenodo, plataforma de compartilhamento e preservasação de dados científicos: - https://zenodo.org/records/15944458. - O dataset contém medições reais de Roud-Trin Time (RTT) obtidas por meio das requisições utilizadas como pontos de monitoramento distribuídos em diferentes regiões da Europa. Sendo assim, a origem dos dados é baseada em medições reais de rede e não dm dados simulados ou gerados artificialmente.
+
+- **Formato:** O dataset disponibiliza os dados em arquivos para download no Zenodo. A página do dataset apresenta os arquivos e os dados das medições de RTT obtidas por ICMP.
+
+- **Período coberto:** As medições foram realizadas de 27 de novembro de 2024 a 30 de janeiro de 2025.
+
+- **Campos disponíveis:** Os dados são voltados para medições de RTT obtidas por ICMP, associadas aos nós de monitoramento e aos endereços IP de destino. O dataset foi organizado para representar medições de latência realizadas a partir de diferentes locallizações geográficas.
+
+- **Licença de uso:** A licença deve ser consultada na seção de informações, licenciamento do regitro do Zenodo Antes de redistribuição dos dados. Para utilização acadêmica, deve-se também seguir a forma de citação indicada pelos autores na página do dataset.
 
 **Resumo do que foi encontrado:**
 
-[Escreva aqui, citando a fonte consultada]
+Foi encontrado no Zenodo um dataset real que conteve medições de RTT realizadas por meio de requisições ICMP Echo. Essas medições foram coletadas entre 27/11/2024 e 30/01/2025, utilizado seis máquinas virtuais como pontos de monitoramento distribuídos nas cidades de Madrid, Dublin, Frankfurt,Varsóvia, Gävle e Milão. O objetivo do dataset é disponibilizar medições reais de latência de rede para análises, incluindo os estudos de desempenho e localição de endereços IP. Sendo assim, o dataset é relevante para o projeto porque fornece dados reais obtidos por ICMP e pode ser utilizado como fonte para analizar a latência da comunicação entre diferentes pontos da rede e apoiar estudos relacionados ao desempenho de redes.
 
 ## 3. Opção B — API do RIPE Atlas
 
 <!-- O que foi encontrado sobre a API: autenticação, criação e consulta de medições. Cite a fonte de cada informação. -->
 
-- **Documentação consultada (link):** `RIPE Atlas Docs - (https://atlas.ripe.net/docs/getting-started/what-is-ripe-atlas).`
-- **Autenticação exigida:** `Uso de chave de API (API Key) gerada na plataforma RIPE Atlas. É necessária para criar e gerenciar medições customizadas, enviada via cabeçalho de requisição HTTP. (https://atlas.ripe.net/docs/apis/).`
-- **Como se cria uma medição:** `Pode ser criada pela interface web do RIPE Atlas, escolhendo o tipo de teste (ex.: ICMP ping), o alvo e a quantidade de sondas (probes), ou enviando uma requisição HTTP POST para o endpoint /api/v2/measurements/ com um payload JSON contendo essas configurações e consumindo créditos da conta. (https://atlas.ripe.net/docs/apis/rest-api-manual/measurements/creating-measurements/#what-s-next)`
-- **Como se consultam os resultados:** `Envio de uma requisição HTTP GET para o endpoint (https://atlas.ripe.net/api/v2/measurements/)(https://atlas.ripe.net/api/v2/measurements/)<id_da_medicao>/results/, retornando a lista de respostas e métricas de desempenho em formato JSON.`
+- **Documentação consultada (link):** RIPE Atlas Docs - (https://atlas.ripe.net/docs/getting-started/what-is-ripe-atlas).`
+- **Autenticação exigida:** `Uso de chave de API (API Key) gerada na plataforma RIPE Atlas. É necessária para criar e gerenciar medições customizadas, enviada via cabeçalho de requisição HTTP. (https://atlas.ripe.net/docs/apis/).
+- **Como se cria uma medição:** Pode ser criada pela interface web do RIPE Atlas, escolhendo o tipo de teste (ex.: ICMP ping), o alvo e a quantidade de sondas (probes), ou enviando uma requisição HTTP POST para o endpoint /api/v2/measurements/ com um payload JSON contendo essas configurações e consumindo créditos da conta. (https://atlas.ripe.net/docs/apis/rest-api-manual/measurements/creating-measurements/#what-s-next)
+- **Como se consultam os resultados:** Envio de uma requisição HTTP GET para o endpoint (https://atlas.ripe.net/api/v2/measurements/)(https://atlas.ripe.net/api/v2/measurements/)<id_da_medicao>/results/, retornando a lista de respostas e métricas de desempenho em formato JSON.
 
 **Resumo do que foi encontrado:**
 
-`Conforme a documentação oficial da RIPE NCC, a API REST v2 do RIPE Atlas permite interagir programaticamente com uma rede global de milhares de sondas físicas e ancoras para realizar medições de rede em tempo real, incluindo testes com o protocolo ICMP (ping e traceroute). A criação de novas medições exige uma conta ativa na plataforma e o uso de uma chave de API autenticada via cabeçalho HTTP, consumindo créditos virtuais (credits) do usuário. A consulta dos resultados pode ser realizada por chamada REST direta em formato JSON utilizando o ID retornado na criação da medição, ou via integração com a biblioteca oficial em Python (ripe.atlas.courier / ripe.atlas.sagan).`
+Conforme a documentação oficial da RIPE NCC, a API REST v2 do RIPE Atlas permite interagir programaticamente com uma rede global de milhares de sondas físicas e ancoras para realizar medições de rede em tempo real, incluindo testes com o protocolo ICMP (ping e traceroute). A criação de novas medições exige uma conta ativa na plataforma e o uso de uma chave de API autenticada via cabeçalho HTTP, consumindo créditos virtuais (credits) do usuário. A consulta dos resultados pode ser realizada por chamada REST direta em formato JSON utilizando o ID retornado na criação da medição, ou via integração com a biblioteca oficial em Python (ripe.atlas.courier / ripe.atlas.sagan).
 
 ## 4. Comparação
 
@@ -88,7 +92,7 @@ O pipeline do projeto já está definido: qualquer fonte de dados precisa produz
 `[]` 
 `[]`
 
-### Integrante 2 — `[Escreva nome completo do aluno ]`
+### Integrante 2 — `Samara Fernandes Soares`
 - **O que fez nesta etapa:** `[]`
 - **Tempo dedicado (aprox.):** `[ex.: 3h30]`
 - **Evidência da contribuição** *(print de conversa, rascunho, e-mail, documento compartilhado etc.)*:
@@ -129,6 +133,6 @@ O pipeline do projeto já está definido: qualquer fonte de dados precisa produz
 
 <!-- Mínimo de 3 fontes. Liste todas as páginas de documentação, artigos ou repositórios usados. -->
 
-1. [ ]
-2. `https://atlas.ripe.net/docs/getting-started/what-is-ripe-atlas`
+1. https://zenodo.org/records/15944458
+2. https://atlas.ripe.net/docs/getting-started/what-is-ripe-atlas
 3. [ ]
