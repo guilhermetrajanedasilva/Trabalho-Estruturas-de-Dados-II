@@ -3,11 +3,11 @@
 
 | Campo | Informação |
 |---|---|
-| Curso / Disciplina | `[]` |
+| Curso / Disciplina | `[Estrutura de Dados II]` |
 | Projeto integrador | `[]` |
-| Orientador(a) | `[]` |
-| Data de entrega desta etapa | `[]` |
-| Integrantes do grupo | `[]` |
+| Orientador(a) | `[Andrea Ono Sakai]` |
+| Data de entrega desta etapa | `[08/09/2026]` |
+| Integrantes do grupo | `[Mariana Moreira Barbosa]` `[Samara Fernandes Soares]` `[Leandro do Nascimento Lemes]` `[Guilherme Trajane da Silva]` `[Vitor Juliao Diogo dos Santos]`|
 
 ---
 
