@@ -25,15 +25,20 @@ O pipeline do projeto já está definido: qualquer fonte de dados precisa produz
 
 <!-- O que foi encontrado sobre um dataset real de ICMP. Cite a fonte de cada informação. -->
 
-- **Origem / link:** [ ]
-- **Formato:** [ ]
-- **Período coberto:** [ ]
-- **Campos disponíveis:** [ ]
-- **Licença de uso:** [ ]
+- **Origem / link:**  Dataset of RTT latency internet measurements in Europe, Disponibilizado no Zenodo:
+Zenodo — Dataset de medições RTT na Europa. Está página informa que os dados são medições reais de Round-Trip Time (RTT) coletadas utilizando requisições ICMP Echo.
+
+- **Formato:** O dataset disponibiliza os dados em arquivos para download no Zenodo. A página do dataset apresenta os arquivos e os dados das medições de RTT obtidas por ICMP.
+
+- **Período coberto:** As medições foram realizadas de 27 de novembro de 2024 a 30 de janeiro de 2025.
+
+- **Campos disponíveis:** Os dados são voltados para medições de RTT obtidas por ICMP, associadas aos nós de monitoramento e aos endereços IP de destino. O dataset foi organizado para representar medições de latência realizadas a partir de diferentes locallizações geográficas.
+
+- **Licença de uso:** A licença deve ser consultada na seção de informações, licenciamento do regitro do Zenodo Antes de redistribuição dos dados. Para utilização acadêmica, deve-se também seguir a forma de citação indicada pelos autores na página do dataset.
 
 **Resumo do que foi encontrado:**
 
-[Escreva aqui, citando a fonte consultada]
+Foi encontrado no Zenodo um dataset real que conteve medições de RTT realizadas por meio de requisições ICMP Echo. Essas medições foram coletadas entre 27/11/2024 e 30/01/2025, sendo utilizados seis máquinas virtuais como pontos de monitoramento distribuídos em diferentes regições da Eurapa: Madrid, Dublin, Frankfurt,Varsóvia, Gävle e Milão. O objetivo do dataset é disponibilizar medições reais de latência de rede para análises, incluindo os estudos de desempenho e localição de endereços IP. Sendo assim, o dataset é relevante para o projeto por que fornece dados reais obtidos por icmp e pode ser utilizado como fonte para analizar a alatência da comunicação entre diferentes pontos da rede.
 
 ## 3. Opção B — API do RIPE Atlas
 
@@ -88,7 +93,7 @@ O pipeline do projeto já está definido: qualquer fonte de dados precisa produz
 `[]` 
 `[]`
 
-### Integrante 2 — `[Escreva nome completo do aluno ]`
+### Integrante 2 — `Samara Fernandes Soares`
 - **O que fez nesta etapa:** `[]`
 - **Tempo dedicado (aprox.):** `[ex.: 3h30]`
 - **Evidência da contribuição** *(print de conversa, rascunho, e-mail, documento compartilhado etc.)*:
@@ -129,6 +134,6 @@ O pipeline do projeto já está definido: qualquer fonte de dados precisa produz
 
 <!-- Mínimo de 3 fontes. Liste todas as páginas de documentação, artigos ou repositórios usados. -->
 
-1. [ ]
+1. https://zenodo.org/records/15944458
 2. [ ]
 3. [ ]
