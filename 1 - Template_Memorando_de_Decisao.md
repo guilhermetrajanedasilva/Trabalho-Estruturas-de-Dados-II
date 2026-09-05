@@ -3,11 +3,11 @@
 
 | Campo | Informação |
 |---|---|
-| Curso / Disciplina | `[Estrutura de Dados II]` |
-| Projeto integrador | `[]` |
-| Orientador(a) | `[Andrea Ono Sakai]` |
-| Data de entrega desta etapa | `[08/09/2026]` |
-| Integrantes do grupo | `[Mariana Moreira Barbosa]` `[Samara Fernandes Soares]` `[Leandro do Nascimento Lemes]` `[Guilherme Trajane da Silva]` `[Vitor Juliao Diogo dos Santos]`|
+| Curso / Disciplina | `Estrutura de Dados II` |
+| Projeto integrador | `` |
+| Orientador(a) | `Andrea Ono Sakai` |
+| Data de entrega desta etapa | `08/09/2026` |
+| Integrantes do grupo | `Mariana Moreira Barbosa`, `Samara Fernandes Soares`, `Leandro do Nascimento Lemes`, `Guilherme Trajane da Silva`, `Vitor Juliao Diogo dos Santos`|
 
 ---
 
@@ -25,10 +25,10 @@ O pipeline do projeto já está definido: qualquer fonte de dados precisa produz
 
 <!-- O que foi encontrado sobre um dataset real de ICMP. Cite a fonte de cada informação. -->
 
-- **Origem / link:** [ ]
-- **Formato:** [ ]
-- **Período coberto:** [ ]
-- **Campos disponíveis:** [ ]
+- **Origem / link:**
+- **Formato:** 
+- **Período coberto:** 
+- **Campos disponíveis:**
 - **Licença de uso:** [ ]
 
 **Resumo do que foi encontrado:**
@@ -39,14 +39,14 @@ O pipeline do projeto já está definido: qualquer fonte de dados precisa produz
 
 <!-- O que foi encontrado sobre a API: autenticação, criação e consulta de medições. Cite a fonte de cada informação. -->
 
-- **Documentação consultada (link):** [ ]
-- **Autenticação exigida:** [ ]
-- **Como se cria uma medição:** [ ]
-- **Como se consultam os resultados:** [ ]
+- **Documentação consultada (link):** `RIPE Atlas Docs - (https://atlas.ripe.net/docs/getting-started/what-is-ripe-atlas).`
+- **Autenticação exigida:** `Uso de chave de API (API Key) gerada na plataforma RIPE Atlas. É necessária para criar e gerenciar medições customizadas, enviada via cabeçalho de requisição HTTP. (https://atlas.ripe.net/docs/apis/).`
+- **Como se cria uma medição:** `Pode ser criada pela interface web do RIPE Atlas, escolhendo o tipo de teste (ex.: ICMP ping), o alvo e a quantidade de sondas (probes), ou enviando uma requisição HTTP POST para o endpoint /api/v2/measurements/ com um payload JSON contendo essas configurações e consumindo créditos da conta. (https://atlas.ripe.net/docs/apis/rest-api-manual/measurements/creating-measurements/#what-s-next)`
+- **Como se consultam os resultados:** `Envio de uma requisição HTTP GET para o endpoint (https://atlas.ripe.net/api/v2/measurements/)(https://atlas.ripe.net/api/v2/measurements/)<id_da_medicao>/results/, retornando a lista de respostas e métricas de desempenho em formato JSON.`
 
 **Resumo do que foi encontrado:**
 
-[Escreva aqui, citando a fonte consultada]
+`Conforme a documentação oficial da RIPE NCC, a API REST v2 do RIPE Atlas permite interagir programaticamente com uma rede global de milhares de sondas físicas e ancoras para realizar medições de rede em tempo real, incluindo testes com o protocolo ICMP (ping e traceroute). A criação de novas medições exige uma conta ativa na plataforma e o uso de uma chave de API autenticada via cabeçalho HTTP, consumindo créditos virtuais (credits) do usuário. A consulta dos resultados pode ser realizada por chamada REST direta em formato JSON utilizando o ID retornado na criação da medição, ou via integração com a biblioteca oficial em Python (ripe.atlas.courier / ripe.atlas.sagan).`
 
 ## 4. Comparação
 
@@ -130,5 +130,5 @@ O pipeline do projeto já está definido: qualquer fonte de dados precisa produz
 <!-- Mínimo de 3 fontes. Liste todas as páginas de documentação, artigos ou repositórios usados. -->
 
 1. [ ]
-2. [ ]
+2. `https://atlas.ripe.net/docs/getting-started/what-is-ripe-atlas`
 3. [ ]
