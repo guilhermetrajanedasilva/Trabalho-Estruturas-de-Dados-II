@@ -66,7 +66,7 @@ Conforme a documentação oficial da RIPE NCC, a API REST v2 do RIPE Atlas permi
 
 <!-- Uma frase direta: qual opção você recomenda. -->
 
-Recomendo a utilização da API do RIPE Atlas pois com ela é possível ter um controle maior em relação aos dados de coleta uma vez que você pode decidir o/os locais no qual você quer analisar os dados além de maior precisão nas datas também.
+Recomendamos a utilização da API do RIPE Atlas pois com ela é possível ter um controle maior em relação aos dados de coleta uma vez que você pode decidir o/os locais no qual você quer analisar os dados além de maior precisão nas datas também.
 
 ## 6. Justificativa
 
@@ -107,11 +107,11 @@ Evidências da contribuição do desenvolvimento:
  <img width="1035" height="862" alt="image" src="https://github.com/user-attachments/assets/9ac0161c-9cc9-42dd-a6ca-650bb5e623b8" />
 
 
-### Integrante 3 — `[Escreva nome completo do aluno ]`
-- **O que fez nesta etapa:** `[]`
-- **Tempo dedicado (aprox.):** `[ex.: 3h30]`
+### Integrante 3 — `Vitor Julião Diogo dos Santos`
+- **O que fez nesta etapa:** Analisei os dados apurados, com os dados fiz uma comparação ente as opções levantando assim a nossa recomendação de qual recomendamos e uma breve justificativa do porque uma vence a outra
+- **Tempo dedicado (aprox.):** 2h
 - **Evidência da contribuição** *(print de conversa, rascunho, e-mail, documento compartilhado etc.)*: 
-`[]` 
+<img width="722" height="277" alt="Captura de tela 2026-09-06 234619" src="https://github.com/user-attachments/assets/652ad416-89a0-4b57-b9a8-4e26173c31a3" />
 `[]`
 
 ### Integrante 4 — `[Escreva nome completo do aluno ]`
