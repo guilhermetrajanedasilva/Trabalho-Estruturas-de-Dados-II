@@ -4,7 +4,7 @@
 | Campo | Informação |
 |---|---|
 | Curso / Disciplina | Estrutura de Dados II |
-| Projeto integrador |  |
+| Projeto integrador | API do Ripe
 | Orientador(a) | Andrea Ono Sakai |
 | Data de entrega desta etapa | 08/09/2026 |
 | Integrantes do grupo | Mariana Moreira Barbosa, Samara Fernandes Soares, Leandro do Nascimento Lemes, Guilherme Trajane da Silva, Vitor Julião Diogo dos Santos|
