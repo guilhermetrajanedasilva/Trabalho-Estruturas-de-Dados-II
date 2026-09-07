@@ -3,11 +3,11 @@
 
 | Campo | Informação |
 |---|---|
-| Curso / Disciplina | `Estrutura de Dados II` |
-| Projeto integrador | `` |
-| Orientador(a) | `Andrea Ono Sakai` |
-| Data de entrega desta etapa | `08/09/2026` |
-| Integrantes do grupo | `Mariana Moreira Barbosa`, `Samara Fernandes Soares`, `Leandro do Nascimento Lemes`, `Guilherme Trajane da Silva`, `Vitor Juliao Diogo dos Santos`|
+| Curso / Disciplina | Estrutura de Dados II |
+| Projeto integrador |  |
+| Orientador(a) | Andrea Ono Sakai |
+| Data de entrega desta etapa | 08/09/2026 |
+| Integrantes do grupo | Mariana Moreira Barbosa, Samara Fernandes Soares, Leandro do Nascimento Lemes, Guilherme Trajane da Silva, Vitor Juliao Diogo dos Santos|
 
 ---
 
@@ -84,12 +84,17 @@ Conforme a documentação oficial da RIPE NCC, a API REST v2 do RIPE Atlas permi
 
 <!-- cada integrante deve descrever, com suas próprias palavras, o que efetivamente fez nesta etapa. Contribuições genéricas como "ajudei em tudo" não serão aceitas. Use verbos de ação e seja específico (ex.: "pesquisei , analisei, testei, ... apresentei prós/contras ao grupo, ...").-->
 
-### Integrante 1 — `[Escreva nome completo do aluno ]`
-- **O que fez nesta etapa:** `[]`
-- **Tempo dedicado (aprox.):** `[ex.: 3h30]`
+### Integrante 1 — `Mariana Moreira Barbosa`
+- **O que fez nesta etapa:** Pesquisei sobre a API do Ripe Atlas, e junto com a equipe do projeto, incluí as informações da Situação, onde será o caminho que iremos seguir, pesquisei sobre o funcionamento dessa API e suas ferramentas para nos ajudar nas próximas etapas.
+- **Tempo dedicado (aprox.):** 5h30
 - **Evidência da contribuição** *(print de conversa, rascunho, e-mail, documento compartilhado etc.)*:
-`[]` 
-`[]`
+
+Evidências da contribuição do desenvolvimento: 
+
+<img width="1367" height="745" alt="image" src="https://github.com/user-attachments/assets/bf1df9a0-88eb-4ce5-ab29-582141a57ce7" />
+
+<img width="1065" height="792" alt="image" src="https://github.com/user-attachments/assets/09b58ad0-ea46-4831-86d5-f4c68fd25983" />
+
 
 ### Integrante 2 — `Samara Fernandes Soares`
 - **O que fez nesta etapa:** : Pesquisei e analisei um dataset real de medições de RTT (o tempo necessário para que um pacote de dados vá da origem ao destino e retorne), obtidas por requisições ICMP, disponibilizado no Zenodo. Verifiquei informações sobre a origem dos dados, período de coleta, formato e campos disponíveis no dataset.
@@ -138,4 +143,5 @@ Conforme a documentação oficial da RIPE NCC, a API REST v2 do RIPE Atlas permi
 
 1. https://zenodo.org/records/15944458
 2. https://atlas.ripe.net/docs/getting-started/what-is-ripe-atlas
-3. [ ]
+3. https://atlas.ripe.net/docs/apis/rest-api-manual/introduction
+4. 
