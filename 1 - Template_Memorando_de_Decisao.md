@@ -57,16 +57,16 @@ Conforme a documentação oficial da RIPE NCC, a API REST v2 do RIPE Atlas permi
 
 | Critério | Opção A — Dataset real | Opção B — API RIPE Atlas |
 |---|---|---|
-| Controle sobre a coleta | | |
-| Diversidade geográfica | | |
-| Custo / complexidade de implementação | | |
-| Tempo até os primeiros dados estarem disponíveis | | |
+| Controle sobre a coleta |O controle é baixo pois os dados já foram coletados anteriormente, entre novembro de 2024 e Janeiro de 2025 limitando os dados a esse período apenas | O controle é alto pois permite criar medições personalizadas |
+| Diversidade geográfica | Limitada pois um dataset  real ultiliza pontos de monitoramento, como no caso analisado em que utiliza apenas 6 pontos espalhados pela Europa | Alta, pois a API geradas pela plataforma RIPE Atlas cobrem uma área de rede mundial |
+| Custo / complexidade de implementação | Baixo custo e complexidade, pois os dados já estão disponíveis para download | Maior complexidade, pois necessário utilizar a API, configurar autenticação com API Key, realizar requisições HTTP e, para criar medições próprias, utilizar créditos da plataforma. |
+| Tempo até os primeiros dados estarem disponíveis | Imediato. Os dados já foram coletados e publicados no Zenodo, podendo ser baixados e utilizados imediatamente. | Variável. É necessário configurar ou localizar uma medição, realizar as requisições à API e, no caso de uma nova medição, aguardar a coleta dos resultados pelas probes. |
 
 ## 5. Recomendação
 
 <!-- Uma frase direta: qual opção você recomenda. -->
 
-[Escreva aqui]
+Recomendo a utilização da API do RIPE Atlas pois com ela é possível ter um controle maior em relação aos dados de coleta uma vez que você pode decidir o/os locais no qual você quer analisar os dados além de maior precisão nas datas também.
 
 ## 6. Justificativa
 
