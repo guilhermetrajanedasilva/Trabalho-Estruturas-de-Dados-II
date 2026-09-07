@@ -7,7 +7,7 @@
 | Projeto integrador |  |
 | Orientador(a) | Andrea Ono Sakai |
 | Data de entrega desta etapa | 08/09/2026 |
-| Integrantes do grupo | Mariana Moreira Barbosa, Samara Fernandes Soares, Leandro do Nascimento Lemes, Guilherme Trajane da Silva, Vitor Juliao Diogo dos Santos|
+| Integrantes do grupo | Mariana Moreira Barbosa, Samara Fernandes Soares, Leandro do Nascimento Lemes, Guilherme Trajane da Silva, Vitor Julião Diogo dos Santos|
 
 ---
 
@@ -25,9 +25,9 @@ A equipe recomenda a utilização da API do RIPE Atlas como fonte de dados, pois
 
 <!-- O que foi encontrado sobre um dataset real de ICMP. Cite a fonte de cada informação. -->
 
-- **Origem / link:** Dataset of RTT latency internet measurements in Europe, Disponibilizado no Zenodo, plataforma de compartilhamento e preservação de dados científicos, fonte: [Zenodo - Dataset of RTT latency internet measurements in Europe](https://zenodo.org/records/15944458). O dataset contém medições reais de Roud-Trip Time (RTT) obtidas por meio das requisições utilizadas como pontos de monitoramento distribuídos em diferentes regiões da Europa. Sendo assim, a origem dos dados é baseada em medições reais de rede e não de dados simulados ou gerados artificialmente.
+- **Origem / link:** Dataset of RTT latency internet measurements in Europe, Disponibilizado no Zenodo, plataforma de compartilhamento e preservação de dados científicos, fonte: [Zenodo - Dataset of RTT latency internet measurements in Europe](https://zenodo.org/records/15944458). O dataset contém medições reais de Round-Trip Time (RTT) obtidas por meio das requisições utilizadas como pontos de monitoramento distribuídos em diferentes regiões da Europa. Sendo assim, a origem dos dados é baseada em medições reais de rede e não de dados simulados ou gerados artificialmente.
 
-- **Formato:** O dataset disponibiliza os dados em arquivos estruturados como CSV/JASON para download diretamente no Zenodo, podendo estar organizados em arquivos compactados. A página do registro apresenta os arquivos individuais, mostrando as medições de RTT e tempos de resposta das requisições ICMP. https://zenodo.org/records/15944458.
+- **Formato:** O dataset disponibiliza os dados em arquivos estruturados como CSV/JSON para download diretamente no Zenodo, podendo estar organizados em arquivos compactados. A página do registro apresenta os arquivos individuais, mostrando as medições de RTT e tempos de resposta das requisições ICMP. https://zenodo.org/records/15944458.
   
 - **Período coberto:** As medições foram realizadas de 27 de novembro de 2024 a 30 de janeiro de 2025. https://zenodo.org/records/15944458.
 
@@ -78,14 +78,19 @@ RIPE Atlas se mostra mais adequada que o dataset analisado porque oferece maior 
 
 <!-- O que pode dar errado com a opção escolhida, e como isso poderia ser mitigado. -->
 
-[Escreva aqui]
+A utilização da API do RIPE Atlas apresenta como um dos principais riscos e limitações a necessidade de autenticação por API Key e, para a criação de novas medições, o consumo de créditos da plataforma, o que pode limitar a quantidade de medições realizadas. Além disso, a utilização da API exige conhecimentos sobre requisições HTTP, formato JSON e processamento dos resultados.
+
+Outro risco está relacionado à disponibilidade e à quantidade de probes utilizadas nas medições, pois a cobertura dos dados pode variar conforme a localização escolhida e a disponibilidade das sondas. Também pode haver dificuldades durante a coleta ou processamento dos dados, como respostas incompletas ou necessidade de tratamento dos resultados antes de gerar as métricas de latência, perda e jitter.
+
+Para reduzir esses riscos, a equipe poderá consultar a documentação oficial da API, realizar testes iniciais com poucas medições, verificar a disponibilidade das probes antes da coleta e implementar validações nos dados recebidos. Dessa forma, será possível identificar problemas antecipadamente e garantir maior confiabilidade nos dados utilizados pelo projeto.
+
 
 ## 8. Contribuição Individual dos Integrantes
 
 <!-- cada integrante deve descrever, com suas próprias palavras, o que efetivamente fez nesta etapa. Contribuições genéricas como "ajudei em tudo" não serão aceitas. Use verbos de ação e seja específico (ex.: "pesquisei , analisei, testei, ... apresentei prós/contras ao grupo, ...").-->
 
 ### Integrante 1 — `Mariana Moreira Barbosa`
-- **O que fez nesta etapa:** Pesquisei sobre a API do Ripe Atlas, e junto com a equipe do projeto, incluí as informações da Situação, onde será o caminho que iremos seguir, pesquisei sobre o funcionamento dessa API e suas ferramentas para nos ajudar nas próximas etapas.
+- **O que fez nesta etapa:** Pesquisei sobre a API do RIPE Atlas, e junto com a equipe do projeto, incluí as informações da Situação, onde será o caminho que iremos seguir, pesquisei sobre o funcionamento dessa API e suas ferramentas para nos ajudar nas próximas etapas.
 - **Tempo dedicado (aprox.):** 5h30
 - **Evidência da contribuição** *(print de conversa, rascunho, e-mail, documento compartilhado etc.)*:
 
@@ -121,12 +126,12 @@ Evidências da contribuição do desenvolvimento:
 <img width="1788" height="979" alt="Captura de Tela 2026-09-07 às 09 17 36" src="https://github.com/user-attachments/assets/27a5087a-7ce4-4506-8d24-82b1d9b1df15" />
 `[]`
 
-### Integrante 5 — `[Escreva nome completo do aluno ]`
-- **O que fez nesta etapa:** `[]`
-- **Tempo dedicado (aprox.):** `[ex.: 3h30]`
-- **Evidência da contribuição** *(print de conversa, rascunho, e-mail, documento compartilhado etc.)*: 
-`[]` 
-`[]`
+### Integrante 5 — `Guilherme Trajane da Silva`
+- **O que fez nesta etapa:** Pesquisei sobre os principais riscos e limitações relacionados à utilização da API do RIPE Atlas como fonte de dados para o projeto. Levantei informações sobre possíveis dificuldades na utilização da API, como a necessidade de autenticação, o uso de créditos para determinadas medições e a complexidade de configuração e coleta dos dados. As informações pesquisadas foram utilizadas como base para o preenchimento da seção de riscos e limitações do memorando.
+- **Tempo dedicado (aprox.):** 1h
+- **Evidência da contribuição** *(print de conversa, rascunho, e-mail, documento compartilhado etc.)*:
+
+- 
 
 ### Integrante 6 — `[Escreva nome completo do aluno ]`
 - **O que fez nesta etapa:** `[]`
