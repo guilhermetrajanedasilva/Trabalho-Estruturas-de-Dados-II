@@ -72,7 +72,7 @@ Recomendamos a utilização da API do RIPE Atlas pois com ela é possível ter u
 
 <!-- Por que essa opção vence a outra, com base nas evidências das seções 2, 3 e 4 — não em preferência pessoal. -->
 
-[Escreva aqui]
+RIPE Atlas se mostra mais adequada que o dataset analisado porque oferece maior controle sobre a coleta, maior diversidade e possibilidade de escolher periodos para as medições. Por outro lado, o dataset possui dados ja definidos e limitados a seis pontos de monitoramento, tornando a API uma opção mais flexível para as análises do projeto.
 
 ## 7. Riscos e limitações
 
