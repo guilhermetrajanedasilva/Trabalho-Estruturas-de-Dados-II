@@ -131,16 +131,13 @@ Evidências da contribuição do desenvolvimento:
 - **Tempo dedicado (aprox.):** 2h
 - **Evidência da contribuição** *(print de conversa, rascunho, e-mail, documento compartilhado etc.)*:
 
-- 
+- Pesquisa sobre os riscos e limitações da API do RIPE Atlas:
 
-### Integrante 6 — `[Escreva nome completo do aluno ]`
-- **O que fez nesta etapa:** `[]`
-- **Tempo dedicado (aprox.):** `[ex.: 3h30]`
-- **Evidência da contribuição** *(print de conversa, rascunho, e-mail, documento compartilhado etc.)*: 
-`[]` 
-`[]`
+- <img width="953" height="240" alt="Screenshot 2026-09-07 17 00 37" src="https://github.com/user-attachments/assets/ceb227a9-edf0-4884-bc2f-3b039ab82133" />
 
----
+- Contribuição para a seção “Riscos e limitações” do memorando:
+
+- <img width="953" height="325" alt="Screenshot 2026-09-07 17 08 23" src="https://github.com/user-attachments/assets/cbafc2f2-78a5-4090-bbde-b9c0729eca40" />
 
 ## Fontes consultadas
 
@@ -149,4 +146,5 @@ Evidências da contribuição do desenvolvimento:
 1. https://zenodo.org/records/15944458
 2. https://atlas.ripe.net/docs/getting-started/what-is-ripe-atlas
 3. https://atlas.ripe.net/docs/apis/rest-api-manual/introduction
-4. 
+4. https://www.ripe.net/ripe/mail/archives/ripe-atlas/2023-January/005378.html
+5. https://atlas.ripe.net/docs/apis/rest-api-manual/core-concepts/rate-limiting
