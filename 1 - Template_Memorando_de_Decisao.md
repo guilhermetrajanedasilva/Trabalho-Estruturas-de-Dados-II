@@ -25,19 +25,18 @@ A equipe recomenda a utilização da API do RIPE Atlas como fonte de dados, pois
 
 <!-- O que foi encontrado sobre um dataset real de ICMP. Cite a fonte de cada informação. -->
 
-- **Origem / link:** Dataset of RTT latency internet measurements in Europe, Disponibilizado no Zenodo, plataforma de compartilhamento e preservasação de dados científicos: - https://zenodo.org/records/15944458. - O dataset contém medições reais de Roud-Trin Time (RTT) obtidas por meio das requisições utilizadas como pontos de monitoramento distribuídos em diferentes regiões da Europa. Sendo assim, a origem dos dados é baseada em medições reais de rede e não dm dados simulados ou gerados artificialmente.
+- **Origem / link:** Dataset of RTT latency internet measurements in Europe, Disponibilizado no Zenodo, plataforma de compartilhamento e preservação de dados científicos, fonte: [Zenodo - Dataset of RTT latency internet measurements in Europe](https://zenodo.org/records/15944458). O dataset contém medições reais de Roud-Trip Time (RTT) obtidas por meio das requisições utilizadas como pontos de monitoramento distribuídos em diferentes regiões da Europa. Sendo assim, a origem dos dados é baseada em medições reais de rede e não de dados simulados ou gerados artificialmente.
 
-- **Formato:** O dataset disponibiliza os dados em arquivos para download no Zenodo. A página do dataset apresenta os arquivos e os dados das medições de RTT obtidas por ICMP.
+- **Formato:** O dataset disponibiliza os dados em arquivos estruturados como CSV/JASON para download diretamente no Zenodo, podendo estar organizados em arquivos compactados. A página do registro apresenta os arquivos individuais, mostrando as medições de RTT e tempos de resposta das requisições ICMP. https://zenodo.org/records/15944458.
+  
+- **Período coberto:** As medições foram realizadas de 27 de novembro de 2024 a 30 de janeiro de 2025. https://zenodo.org/records/15944458.
 
-- **Período coberto:** As medições foram realizadas de 27 de novembro de 2024 a 30 de janeiro de 2025.
-
-- **Campos disponíveis:** Os dados são voltados para medições de RTT obtidas por ICMP, associadas aos nós de monitoramento e aos endereços IP de destino. O dataset foi organizado para representar medições de latência realizadas a partir de diferentes locallizações geográficas.
-
-- **Licença de uso:** A licença deve ser consultada na seção de informações, licenciamento do regitro do Zenodo Antes de redistribuição dos dados. Para utilização acadêmica, deve-se também seguir a forma de citação indicada pelos autores na página do dataset.
-
+- **Campos disponíveis:** Os dados são voltados para medições de RTT obtidas por ICMP, associadas aos nós de monitoramento e aos endereços IP de destino. O dataset foi organizado para representar medições de latência realizadas a partir de diferentes localizações geográficas. https://zenodo.org/records/15944458.
+  
+- **Licença de uso:** O dataset está disponibilizado sob licença Creative Commons Attribution 4.0 Internacional (CC BY 4.0).Essa licença vai permitir o uso, compartilhamento e adaptação dos dados, desde que seja dada a devida atribuição aos autores do dataset. Para utilização Acadêmica, deve-se realizar a citação da fonte conforme as informações disponibilizadas no registro do Zenodo. https://zenodo.org/records/15944458.
+  
 **Resumo do que foi encontrado:**
-
-Foi encontrado no Zenodo um dataset real que conteve medições de RTT realizadas por meio de requisições ICMP Echo. Essas medições foram coletadas entre 27/11/2024 e 30/01/2025, utilizado seis máquinas virtuais como pontos de monitoramento distribuídos nas cidades de Madrid, Dublin, Frankfurt,Varsóvia, Gävle e Milão. O objetivo do dataset é disponibilizar medições reais de latência de rede para análises, incluindo os estudos de desempenho e localição de endereços IP. Sendo assim, o dataset é relevante para o projeto porque fornece dados reais obtidos por ICMP e pode ser utilizado como fonte para analizar a latência da comunicação entre diferentes pontos da rede e apoiar estudos relacionados ao desempenho de redes.
+Foi encontrado no Zenodo um dataset real que conteve medições de RTT realizadas por meio de requisições ICMP Echo. Essas medições foram coletadas entre 27/11/2024 e 30/01/2025, utilizado seis máquinas virtuais como pontos de monitoramento distribuídos nas cidades de Madrid, Dublin, Frankfurt,Varsóvia, Gävle e Milão. O objetivo do dataset é disponibilizar medições reais de latência de rede para análises, incluindo os estudos de desempenho e localização de endereços IP. Sendo assim, o dataset é relevante para o projeto porque fornece dados reais obtidos por ICMP e pode ser utilizado como fonte para analisar a latência da comunicação entre diferentes pontos da rede e apoiar estudos relacionados ao desempenho de redes.
 
 ## 3. Opção B — API do RIPE Atlas
 
@@ -93,11 +92,15 @@ Conforme a documentação oficial da RIPE NCC, a API REST v2 do RIPE Atlas permi
 `[]`
 
 ### Integrante 2 — `Samara Fernandes Soares`
-- **O que fez nesta etapa:** `[]`
-- **Tempo dedicado (aprox.):** `[ex.: 3h30]`
+- **O que fez nesta etapa:** : Pesquisei e analisei um dataset real de medições de RTT (o tempo necessário para que um pacote de dados vá da origem ao destino e retorne), obtidas por requisições ICMP, disponibilizado no Zenodo. Verifiquei informações sobre a origem dos dados, período de coleta, formato e campos disponíveis no dataset.
+  
+- **Tempo dedicado (aprox.):** 4h30
 - **Evidência da contribuição** *(print de conversa, rascunho, e-mail, documento compartilhado etc.)*:
-`[]` 
-`[]`
+  
+ print dos commits do desenvolvimento que fiz do projeto como evidência ⬇️
+ 
+ <img width="1035" height="862" alt="image" src="https://github.com/user-attachments/assets/9ac0161c-9cc9-42dd-a6ca-650bb5e623b8" />
+
 
 ### Integrante 3 — `[Escreva nome completo do aluno ]`
 - **O que fez nesta etapa:** `[]`
