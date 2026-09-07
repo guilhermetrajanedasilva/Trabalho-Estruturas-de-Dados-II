@@ -114,11 +114,11 @@ Evidências da contribuição do desenvolvimento:
 <img width="722" height="277" alt="Captura de tela 2026-09-06 234619" src="https://github.com/user-attachments/assets/652ad416-89a0-4b57-b9a8-4e26173c31a3" />
 `[]`
 
-### Integrante 4 — `[Escreva nome completo do aluno ]`
-- **O que fez nesta etapa:** `[]`
-- **Tempo dedicado (aprox.):** `[ex.: 3h30]`
-- **Evidência da contribuição** *(print de conversa, rascunho, e-mail, documento compartilhado etc.)*: 
-`[]` 
+### Integrante 4 — `Leandro do Nascimento Lemes`
+- **O que fez nesta etapa:** contribuição na comparação entre o dataset e a API do RIPE Atlas, elaboração da justificativa da decisão e revisão do conteúdo do memorando. 
+- **Tempo dedicado (aprox.):** 34min
+- **Evidência da contribuição** *(print de conversa, rascunho, e-mail, documento compartilhado etc.)*:
+<img width="1788" height="979" alt="Captura de Tela 2026-09-07 às 09 17 36" src="https://github.com/user-attachments/assets/27a5087a-7ce4-4506-8d24-82b1d9b1df15" />
 `[]`
 
 ### Integrante 5 — `[Escreva nome completo do aluno ]`
