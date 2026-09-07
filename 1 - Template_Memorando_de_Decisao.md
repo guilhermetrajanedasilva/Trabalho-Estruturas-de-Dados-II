@@ -128,7 +128,7 @@ Evidências da contribuição do desenvolvimento:
 
 ### Integrante 5 — `Guilherme Trajane da Silva`
 - **O que fez nesta etapa:** Pesquisei sobre os principais riscos e limitações relacionados à utilização da API do RIPE Atlas como fonte de dados para o projeto. Levantei informações sobre possíveis dificuldades na utilização da API, como a necessidade de autenticação, o uso de créditos para determinadas medições e a complexidade de configuração e coleta dos dados. As informações pesquisadas foram utilizadas como base para o preenchimento da seção de riscos e limitações do memorando.
-- **Tempo dedicado (aprox.):** 1h
+- **Tempo dedicado (aprox.):** 2h
 - **Evidência da contribuição** *(print de conversa, rascunho, e-mail, documento compartilhado etc.)*:
 
 - 
