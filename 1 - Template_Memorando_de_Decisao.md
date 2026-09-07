@@ -19,7 +19,7 @@
 O pipeline do projeto já está definido: qualquer fonte de dados precisa produzir registros que se transformem em janelas e, por fim, em X = [latência, perda, jitter]. Falta decidir de onde virão esses dados na próxima fase. A equipe do projeto precisa recomendar, com base em pesquisa e não em preferência pessoal, se a próxima etapa deve usar um dataset real já publicado ou a API do RIPE Atlas. O grupo deve produzir um memorando de decisão com a recomendação da tomada de decisão. A recomendação só tem valor se for sustentada por pesquisa real — não existe resposta pronta para copiar; ela precisa ser construída a partir do que vocês encontraram.
 -->
 
-[Escreva aqui uma frase, qual decisão precisa ser tomada e por quê]
+A equipe recomenda a utilização da API do RIPE Atlas como fonte de dados, pois seus resultados de medições podem fornecer informações necessárias para a geração dos registros que serão posteriormente transformados em métricas de latência, perda e jitter. Além disso, a API permite consultar resultados por período e por probe, facilitando a coleta e o processamento dos dados.
 
 ## 2. Opção A — Dataset real
 
