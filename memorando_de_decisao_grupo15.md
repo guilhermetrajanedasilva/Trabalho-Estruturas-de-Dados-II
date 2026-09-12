@@ -19,7 +19,9 @@
 O pipeline do projeto já está definido: qualquer fonte de dados precisa produzir registros que se transformem em janelas e, por fim, em X = [latência, perda, jitter]. Falta decidir de onde virão esses dados na próxima fase. A equipe do projeto precisa recomendar, com base em pesquisa e não em preferência pessoal, se a próxima etapa deve usar um dataset real já publicado ou a API do RIPE Atlas. O grupo deve produzir um memorando de decisão com a recomendação da tomada de decisão. A recomendação só tem valor se for sustentada por pesquisa real — não existe resposta pronta para copiar; ela precisa ser construída a partir do que vocês encontraram.
 -->
 
-A equipe recomenda a utilização da API do RIPE Atlas como fonte de dados, pois seus resultados de medições podem fornecer informações necessárias para a geração dos registros que serão posteriormente transformados em métricas de latência, perda e jitter. Além disso, a API permite consultar resultados por período e por probe, facilitando a coleta e o processamento dos dados.
+A próxima fase de coleta de dados do projeto NetVision exige a escolha entre o uso da API do RIPE Atlas ou de um dataset real preexistente do Zenodo. Essa definição é crucial porque o pipeline de processamento necessita de uma fonte cujos registros permitam a construção contínua de janelas de amostragem e a extração direta do vetor métrico X = [latência, perda, jitter].
+
+Diante dos requisitos exigidos, a equipe recomenda a adoção da API do RIPE Atlas para o prosseguimento do projeto. A escolha se fundamenta na capacidade da plataforma em fornecer dados de medição ativos e configuráveis em tempo real, garantindo a granularidade e a consistência necessárias para alimentar com precisão o pipeline do NetVision.
 
 ## 2. Opção A — Dataset real
 
@@ -36,7 +38,7 @@ A equipe recomenda a utilização da API do RIPE Atlas como fonte de dados, pois
 - **Licença de uso:** O dataset está disponibilizado sob licença Creative Commons Attribution 4.0 Internacional (CC BY 4.0).Essa licença vai permitir o uso, compartilhamento e adaptação dos dados, desde que seja dada a devida atribuição aos autores do dataset. Para utilização Acadêmica, deve-se realizar a citação da fonte conforme as informações disponibilizadas no registro do Zenodo. https://zenodo.org/records/15944458.
   
 **Resumo do que foi encontrado:**
-Foi encontrado no Zenodo um dataset real que conteve medições de RTT realizadas por meio de requisições ICMP Echo. Essas medições foram coletadas entre 27/11/2024 e 30/01/2025, utilizado seis máquinas virtuais como pontos de monitoramento distribuídos nas cidades de Madrid, Dublin, Frankfurt,Varsóvia, Gävle e Milão. O objetivo do dataset é disponibilizar medições reais de latência de rede para análises, incluindo os estudos de desempenho e localização de endereços IP. Sendo assim, o dataset é relevante para o projeto porque fornece dados reais obtidos por ICMP e pode ser utilizado como fonte para analisar a latência da comunicação entre diferentes pontos da rede e apoiar estudos relacionados ao desempenho de redes.
+Foi encontrado no Zenodo um dataset real que conteve medições de RTT realizadas por meio de requisições ICMP Echo. Essas medições foram coletadas entre 27/11/2024 e 30/01/2025, utilizado seis máquinas virtuais como pontos de monitoramento distribuídos nas cidades de Madrid, Dublin, Frankfurt,Varsóvia, Gävle e Milão. Apesar de ser um dataset real e auditável, os dados disponíveis resumem-se a estatísticas agregadas de RTT por alvo (como média, média geométrica e desvio padrão), voltadas para a caracterização e geolocalização de IP. O dataset não disponibiliza séries temporais de perda de pacotes e nem métricas de jitter. Dessa forma, embora seja útil para análises de latência isoladas, ele não entrega as três métricas prontas para a composição do vetor X = [latência, perda, jitter] exigido pelo pipeline do projeto.
 
 ## 3. Opção B — API do RIPE Atlas
 
@@ -72,7 +74,7 @@ Recomendamos a utilização da API do RIPE Atlas pois com ela é possível ter u
 
 <!-- Por que essa opção vence a outra, com base nas evidências das seções 2, 3 e 4 — não em preferência pessoal. -->
 
-RIPE Atlas se mostra mais adequada que o dataset analisado porque oferece maior controle sobre a coleta, maior diversidade e possibilidade de escolher periodos para as medições. Por outro lado, o dataset possui dados ja definidos e limitados a seis pontos de monitoramento, tornando a API uma opção mais flexível para as análises do projeto.
+A API do RIPE Atlas se mostra mais adequada que o dataset analisado porque oferece maior controle sobre a coleta, maior diversidade geográfica e a possibilidade de escolher os períodos das medições. Além disso, o dataset europeu do Zenodo entrega apenas estatísticas agregadas de RTT (como média, média geométrica e desvio), sem fornecer dados de perda de pacotes e jitter, o que descumpre o contrato do pipeline necessário para montar o vetor X = [latência, perda, jitter] e treinar o modelo de falhas. Em contrapartida, as medições de ping via API do RIPE Atlas permitem derivar com precisão todas as três métricas exigidas pelo projeto. Por outro lado, o dataset possui dados já definidos, estáticos e limitados a apenas seis pontos de monitoramento, tornando a API uma opção muito mais flexível e tecnicamente viável para as análises do NetVision.
 
 ## 7. Riscos e limitações
 
@@ -95,8 +97,6 @@ Para reduzir esses riscos, a equipe poderá consultar a documentação oficial d
 - **Evidência da contribuição** *(print de conversa, rascunho, e-mail, documento compartilhado etc.)*:
 
 Evidências da contribuição do desenvolvimento: 
-
-<img width="1367" height="745" alt="image" src="https://github.com/user-attachments/assets/bf1df9a0-88eb-4ce5-ab29-582141a57ce7" />
 
 <img width="1065" height="792" alt="image" src="https://github.com/user-attachments/assets/09b58ad0-ea46-4831-86d5-f4c68fd25983" />
 
