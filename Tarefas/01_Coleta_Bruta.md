@@ -4,10 +4,13 @@
 **Projeto:** Preditor de degradação de rede com RTT normalizado (independente da rota)  
 **Modelo desta disciplina:** árvore de decisão. Nesta tarefa não se treina árvore.
 
-**Equipe:**  
-**Integrantes:**  
-**Scrum Master da tarefa:**  
-**Repositório GitHub:**
+**Equipe:**  NetVision - Visualização e análise de dados de rede
+
+**Integrantes:**  Mariana Moreira Barbosa, Samara Fernandes Soares, Leandro do Nascimento Lemes, Guilherme Trajane da Silva, Vitor Julião Diogo dos Santos
+
+**Scrum Master da tarefa:**  Mariana Moreira Barbosa
+
+**Repositório GitHub:**  https://github.com/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II
 
 > Esta tarefa entrega o problema e o **dado cru**. Não há classe OK, RISCO ou FALHA. Não há baseline, não há mediana e não há árvore. Quem rotular aqui mistura a coleta com a decisão da Tarefa 2.
 >
