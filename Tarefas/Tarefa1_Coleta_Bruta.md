@@ -43,8 +43,8 @@ Responder no diário. A resposta tem de bater com o RFC.
 | Quem usa o alerta? | Quem opera o enlace: investigar (FALHA), observar (RISCO) ou não agir (OK). |
 | O que está proibido como definição de falha? | Limiar global de RTT, país, continente ou nome da rota. |
 
-- [ ] RFC do grupo preenchido a partir desta tabela
-- [ ] Dicionário v0.1 só com variáveis brutas
+- [x] RFC do grupo preenchido a partir desta tabela
+- [x] Dicionário v0.1 só com variáveis brutas
 
 ## 2. O que coletar (e o que não criar)
 
@@ -55,12 +55,12 @@ Cada registro bruto guarda, quando a API trouxer:
 | Campo | Unidade | Papel agora |
 |---|---|---|
 | `timestamp` | UTC | Ordenar o fluxo |
-| `measurement_id` | — | Identidade da medição |
-| `probe_id` | — | Origem |
-| `dst_addr` | — | Destino |
+| `measurement_id` | — | Identidade da medição(1001) |
+| `probe_id` | — | Origem(ID da sonda RIPE Atlas) |
+| `dst_addr` | — | Destino(Endereço IP do alvo, 193.0.14.129) |
 | `fluxo_id` | texto estável | `probe_id\|dst_addr` |
 | RTT da rajada (médio; mín/máx se existirem) | ms | Medição. Vazio se não houver resposta. **Nunca 0** |
-| enviados, recebidos | contagem | |
+| enviados, recebidos | contagem | Quantidade de pacotes ICMP enviados e recebidos |
 | `perda_pct` | % | `(enviados − recebidos) / enviados × 100` |
 | `jitter_ms` | ms | Desvio-padrão dos RTT da rajada **somente** com 2 ou mais respostas. Senão, vazio. **Nunca 0 fingindo estabilidade** |
 | `timeout_atual` | 0 ou 1 | 1 se não há RTT ou perda = 100% |
