@@ -98,16 +98,16 @@ Regras da coleta:
 
 ## 3. Relatório de qualidade — ainda sem classe
 
-- [ ] Registros por `fluxo_id`
-- [ ] Início e fim de cada fluxo
-- [ ] Campos ausentes (RTT vazio é ausência, não zero)
-- [ ] Duplicatas
-- [ ] Quantidade de timeouts
-- [ ] RTT e perda descritos (mínimo, mediana, máximo) **sem** dizer OK, RISCO ou FALHA
+- [x] Registros por `fluxo_id`
+- [x] Início e fim de cada fluxo
+- [x] Campos ausentes (RTT vazio é ausência, não zero)
+- [x] Duplicatas
+- [x] Quantidade de timeouts
+- [x] RTT e perda descritos (mínimo, mediana, máximo) **sem** dizer OK, RISCO ou FALHA
 
-**N de registros brutos:**  
-**N de fluxos:**  
-**Caminho curto e caminho longo presentes (quais):**
+**N de registros brutos:336.326
+**N de fluxos: 67 fluxos coletados (64 fluxos válidos com baseline de $\ge 1.500$ amostras)
+**Caminho curto e caminho longo presentes (quais):Caminhos longos (transoceânicos): BR→JP (mediana de ~277 ms), BR→IN (mediana de ~339 ms) e BR→ZA (mediana de ~344 ms).
 
 ## 4. Scrum
 
