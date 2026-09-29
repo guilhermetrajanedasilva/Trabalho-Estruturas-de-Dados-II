@@ -79,9 +79,22 @@ Regras da coleta:
 
 **Evidências (notebook, commit, trecho do config):**
 
-Script de coleta (Link do Collab) - https://colab.research.google.com/github/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II/blob/principal/2_Coleta_de_dados.ipynb#scrollTo=aNGRm6al7pDb
+- Script de coleta (Link do Collab) - https://colab.research.google.com/github/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II/blob/principal/2_Coleta_de_dados.ipynb#scrollTo=aNGRm6al7pDb
 
-Link dos Commits (GitHub) - 
+- Link dos Commits (GitHub) - https://github.com/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II/commits/principal/2_Coleta_de_dados.ipynb
+
+- Trecho dos parâmetros e requisição:
+  ```python
+  MEASUREMENT_ID = 1001
+  FORMATO_TABELAR = "parquet"
+
+  URL = f"[https://atlas.ripe.net/api/v2/measurements/](https://atlas.ripe.net/api/v2/measurements/){MEASUREMENT_ID}/results/"
+  PARAMETROS = {
+      "start": int(inicio_utc.timestamp()),
+      "stop": int(fim_utc.timestamp()),
+      "format": "json",
+      "limit": 100
+  }
 
 ## 3. Relatório de qualidade — ainda sem classe
 
