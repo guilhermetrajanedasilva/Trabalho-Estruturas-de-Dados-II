@@ -68,14 +68,14 @@ Cada registro bruto guarda, quando a API trouxer:
 
 Regras da coleta:
 
-- [ ] Vários fluxos, com pelo menos um caminho curto e um caminho longo no mesmo período
-- [ ] A diversidade geográfica está documentada e **não** virou classe
-- [ ] Dois blocos de tempo contíguos, sem amostra nos dois: Período A (só para o baseline da Tarefa 2) e Período B (medições que serão rotuladas). Referência do projeto: 7 dias + 7 dias a partir de 06/09/2026 04:32 UTC. Outro recorte só vale se os dois blocos continuarem sem sobreposição e o A tiver volume para o mínimo da Tarefa 2
-- [ ] Timeout permanece no arquivo
-- [ ] JSON bruto preservado; a tabela tratada não apaga o bruto
-- [ ] Parâmetros (período, probes, destinos) em `config/`, não espalhados no código
-- [ ] HTTP com timeout, releitura em erro transitório e coleta idempotente (rodar de novo não duplica)
-- [ ] `requirements.txt` da coleta
+- [X] Vários fluxos, com pelo menos um caminho curto e um caminho longo no mesmo período
+- [X] A diversidade geográfica está documentada e **não** virou classe
+- [X] Dois blocos de tempo contíguos, sem amostra nos dois: Período A (só para o baseline da Tarefa 2) e Período B (medições que serão rotuladas). Referência do projeto: 7 dias + 7 dias a partir de 06/09/2026 04:32 UTC. Outro recorte só vale se os dois blocos continuarem sem sobreposição e o A tiver volume para o mínimo da Tarefa 2
+- [X] Timeout permanece no arquivo
+- [X] JSON bruto preservado; a tabela tratada não apaga o bruto
+- [X] Parâmetros (período, probes, destinos) em `config/`, não espalhados no código
+- [X] HTTP com timeout, releitura em erro transitório e coleta idempotente (rodar de novo não duplica)
+- [X] `requirements.txt` da coleta
 
 **Evidências (notebook, commit, trecho do config):**
 
