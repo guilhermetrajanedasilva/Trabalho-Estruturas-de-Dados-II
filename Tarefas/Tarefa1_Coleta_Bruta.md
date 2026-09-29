@@ -113,9 +113,9 @@ Regras da coleta:
 
 ## 4. Scrum
 
-- [ ] Product Owner = docente; Scrum Master da tarefa; time de desenvolvimento
-- [ ] Board com To do / Doing / Done
-- [ ] Pelo menos 3 histórias: coletar fluxos diversos; preservar o bruto com timeout; separar Período A e Período B sem rotular
+- [x] Product Owner = docente; Scrum Master da tarefa; time de desenvolvimento
+- [x] Board com To do / Doing / Done
+- [x] Pelo menos 3 histórias: coletar fluxos diversos; preservar o bruto com timeout; separar Período A e Período B sem rotular
 
 **Histórias:**  
 1. Coletar fluxos diversos (com caminhos curtos e longos no mesmo período)
