@@ -79,6 +79,10 @@ Regras da coleta:
 
 **Evidências (notebook, commit, trecho do config):**
 
+Script de coleta (Link do Collab) - https://colab.research.google.com/github/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II/blob/principal/2_Coleta_de_dados.ipynb#scrollTo=aNGRm6al7pDb
+
+Link dos Commits (GitHub) - 
+
 ## 3. Relatório de qualidade — ainda sem classe
 
 - [ ] Registros por `fluxo_id`
