@@ -128,7 +128,11 @@ Regras da coleta:
 
 | Integrante | O que fiz nesta tarefa | Dificuldades | O que pretendo manter/ajustar |
 |---|---|---|---|
-| | | | |
+| **Mariana Moreira Barbosa** | Realizou a documentação inicial da Tarefa 1, participou da definição do problema, dos critérios da coleta e dos ajustes e inclusão de evidências. | Ajustes na documentação e organização das evidências da coleta. | Manter a organização das evidências e ajustar a documentação conforme as próximas etapas. |
+| **Samara Fernandes Soares** | Definiu e configurou parâmetros da coleta, participou da execução da consulta à API RIPE Atlas e documentou atividades e evidências. | Organização dos parâmetros e registro das evidências da coleta. | Manter os parâmetros documentados e as evidências associadas às atividades. |
+| **Leandro do Nascimento Lemes** | Realizou a transformação dos dados JSON para DataFrame e registrou a atividade e suas evidências no notebook. | Inspeção e organização dos dados coletados para verificar sua estrutura. | Manter o registro das etapas de transformação e verificação dos dados. | 
+| **Guilherme Trajane da Silva** | Realizou atualizações no notebook de coleta e participou do registro das informações do projeto. | Os commits analisados não permitem determinar com segurança uma história específica associada à sua atuação. | Manter o registro das alterações realizadas e melhorar a identificação das atividades nos próximos registros. | 
+| **Vitor Julião Diogo dos Santos** | Atualizou parâmetros e critérios da coleta e participou do relatório de qualidade, incluindo métricas e detalhes dos dados coletados. | Organização e registro das métricas e critérios de qualidade. | Manter o acompanhamento das métricas e documentar os critérios de qualidade. |
 
 ## 6. Evidências gerais
 
