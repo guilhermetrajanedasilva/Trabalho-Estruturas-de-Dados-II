@@ -118,11 +118,12 @@ Regras da coleta:
 - [ ] Pelo menos 3 histórias: coletar fluxos diversos; preservar o bruto com timeout; separar Período A e Período B sem rotular
 
 **Histórias:**  
-1.  
-2.  
-3.  
+1. Coletar fluxos diversos (com caminhos curtos e longos no mesmo período)
+2. Preservar o dado bruto com tratamento correto de timeout 
+3. Separar Período A e Período B sem rotular
 
-**Link do board:**
+**Link do board:** 
+https://github.com/users/Leandro-Nas-Lemes/projects/1/views/1
 
 ## 5. Diário de bordo
 
