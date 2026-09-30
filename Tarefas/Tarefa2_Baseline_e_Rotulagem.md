@@ -43,13 +43,16 @@ Mariana Moreira Barbosa, Samara Fernandes Soares, Leandro do Nascimento Lemes, G
 
 `data/raw/` permanece intocado. A auditoria vai para o diário; a tabela de trabalho, para `data/interim/`.
 
-- [ ] Contagem de linhas, fluxos, duplicatas e RTT vazio
-- [ ] Nenhum RTT ausente foi gravado como 0
-- [ ] Período A e Período B não compartilham timestamp do mesmo fluxo
+- [x] Contagem de linhas, fluxos, duplicatas e RTT vazio
+- [x] Nenhum RTT ausente foi gravado como 0
+- [x] Período A e Período B não compartilham timestamp do mesmo fluxo
 
-**N bruto:**  
-**N de fluxos:**  
-**Evidências:**
+**N bruto:** 336.326 registros
+
+**N de fluxos:** 67 fluxos totais coletados
+
+**Evidências:**  [Link para o notebook no GitHub](https://github.com/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II/blob/principal/2_Coleta_de_dados.ipynb)
+
 
 ## 2. Como obter o baseline
 
@@ -75,12 +78,16 @@ Uma ficha por `fluxo_id`. Só o Período A. O Período B não entra na conta e n
 | `prop_resposta` | medições com RTT válido / medições do período              |
 
 
-- [ ] Ficha conferida em pelo menos um fluxo curto e um fluxo longo (as medianas podem ser muito diferentes; as duas são “normal”)
-- [ ] Lista dos fluxos excluídos e o motivo (contagem abaixo de 1.500)
+- [x] Ficha conferida em pelo menos um fluxo curto e um fluxo longo (as medianas podem ser muito diferentes; as duas são “normal”)
+- [x] Lista dos fluxos excluídos e o motivo (contagem abaixo de 1.500)
 
-**Fluxos com ficha:**  
-**Fluxos excluídos:**  
-**Exemplo auditável (fluxo curto: mediana; fluxo longo: mediana):**
+**Fluxos com ficha:** 64 fluxos (apresentaram volume de amostras válidas $\ge 1.500$ no Período A).
+
+**Fluxos excluídos:**  3 fluxos associados ao destino 170.81.100.114 (origem BR) foram marcados como baseline_insuficiente por apresentarem amostragem de RTT válido inferior ao limite mínimo de 1.500 registos no Período A.
+
+**Exemplo auditável (fluxo curto: mediana; fluxo longo: mediana):**Fluxo Curto (DE→DE): mediana = 14,0 ms | MAD = 0,8 ms | jitter_tipico = 0,3 ms | perda_tipica = 0,0%
+
+Fluxo Longo (BR→ZA): mediana = 344,0 ms | MAD = 2,1 ms | jitter_tipico = 0,6 ms | perda_tipica = 0,0%
 
 ## 3. Métricas de cada medição do Período B
 
@@ -133,8 +140,9 @@ Cada linha do Período B, de um fluxo que tenha ficha. FALHA ganha de RISCO; RIS
 - [ ] O Período A não foi rotulado
 - [ ] Dicionário v0.2 lista as colunas proibidas na árvore: país, IP, `rota_id`, `fluxo_id`, RTT absoluto como substituto das métricas relativas
 
-**Contagem OK / RISCO / FALHA:**  
-**Evidências (três linhas reais, com as métricas e a ordem que disparou a classe):**
+**Contagem OK / RISCO / FALHA:** 
+
+**Evidências (três linhas reais, com as métricas e a ordem que disparou a classe):** 
 
 ## 5. Recorte para a árvore (ainda sem treinar)
 
