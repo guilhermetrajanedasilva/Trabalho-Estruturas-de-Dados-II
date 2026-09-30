@@ -33,7 +33,7 @@ Mariana Moreira Barbosa, Samara Fernandes Soares, Leandro do Nascimento Lemes, G
 
 **Não sai daqui:** árvore treinada, profundidade escolhida, acurácia, F1.
 
-- [ ] O notebook lê o bruto da Tarefa 1
+- [X] O notebook lê o bruto da Tarefa 1
 
 ---
 
