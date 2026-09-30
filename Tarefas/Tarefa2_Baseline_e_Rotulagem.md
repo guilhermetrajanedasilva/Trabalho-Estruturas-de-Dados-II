@@ -134,15 +134,29 @@ Cada linha do Período B, de um fluxo que tenha ficha. FALHA ganha de RISCO; RIS
 | 6     | **OK**    | nenhuma linha anterior                                                                                    | pico isolado também é OK                            |
 
 
-- [ ] Três exemplos auditáveis no diário: um OK de caminho longo (RTT alto e `z_robusto` baixo), um RISCO, um FALHA de caminho curto ou de timeout
-- [ ] Contagem OK / RISCO / FALHA no Período B
-- [ ] A classe **não** foi definida por “RTT > 100 ms” nem pelo nome da rota
-- [ ] O Período A não foi rotulado
-- [ ] Dicionário v0.2 lista as colunas proibidas na árvore: país, IP, `rota_id`, `fluxo_id`, RTT absoluto como substituto das métricas relativas
+- [x] Três exemplos auditáveis no diário: um OK de caminho longo (RTT alto e `z_robusto` baixo), um RISCO, um FALHA de caminho curto ou de timeout
+- [x] Contagem OK / RISCO / FALHA no Período B
+- [x] A classe **não** foi definida por “RTT > 100 ms” nem pelo nome da rota
+- [x] O Período A não foi rotulado
+- [x] Dicionário v0.2 lista as colunas proibidas na árvore: país, IP, `rota_id`, `fluxo_id`, RTT absoluto como substituto das métricas relativas
 
-**Contagem OK / RISCO / FALHA:** 
+**Contagem OK / RISCO / FALHA:**  OK: 123.123 registros (76,8%)
 
-**Evidências (três linhas reais, com as métricas e a ordem que disparou a classe):** 
+RISCO: 8.336 registros (5,2%)
+
+FALHA: 28.858 registros (18,0%)
+(Total de 160.317 linhas rotuladas no Período B)
+
+
+**Evidências (três linhas reais, com as métricas e a ordem que disparou a classe):** Exemplo OK (Caminho longo BR→JP):Métricas: RTT = 278,2 ms | mediana = 277,0 ms | z_robusto = 0,65 | perda_pct = 0% | n5_risco = 0
+Ordem que disparou: Linha 6 (OK) — Nenhuma condição das linhas 1 a 5 foi satisfeita. O RTT absoluto alto (> 100 ms) não gerou alarme falso, pois a latência manteve-se no patamar normal do fluxo.
+
+Exemplo RISCO (Caminho regional BR→BR):Métricas: RTT = 72,5 ms | mediana = 50,0 ms | aumento_pct = 45,0% | z_robusto = 2,40 | n5_risco = 3
+Ordem que disparou: Linha 5 (RISCO) — Ativou o critério $2 \le z_{\text{robusto}} < 3,5$ combinado com persistência n5_risco $\ge 2$.
+
+Exemplo FALHA (Caminho curto / Timeout):Métricas: RTT = NaN | perda_pct = 100% | timeout_atual = 1 | n5_timeout = 4
+Ordem que disparou: Linha 1 / Linha 2 (FALHA) — Ativou perda_pct $\ge 10\%$ e persistência de timeouts n5_timeout $\ge 3$.
+
 
 ## 5. Recorte para a árvore (ainda sem treinar)
 
