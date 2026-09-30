@@ -162,12 +162,18 @@ Ordem que disparou: Linha 1 / Linha 2 (FALHA) — Ativou perda_pct $\ge 10\%$ e 
 
 Dentro do Período B, por fluxo, em ordem de tempo:
 
-- [ ] Treino = trecho mais antigo; validação = trecho do meio; teste = trecho mais recente
-- [ ] Proporção de partida 50% / 20% / 30%, ajustada se um bloco ficar sem RISCO
-- [ ] Nenhum registro do Período A no treino
-- [ ] Corte com data e N de cada bloco
+- [x] Treino = trecho mais antigo; validação = trecho do meio; teste = trecho mais recente
+- [x] Proporção de partida 50% / 20% / 30%, ajustada se um bloco ficar sem RISCO
+- [x] Nenhum registro do Período A no treino
+- [x] Corte com data e N de cada bloco
 
-**Corte (datas e N treino / validação / teste):**
+**Corte (datas e N treino / validação / teste):** O recorte temporal foi efetuado estritamente dentro do Período B (13/09/2026 04:32 UTC a 20/09/2026 04:32 UTC), ordenado por timestamp para cada fluxo_id, mantendo a proporção aproximada de 50% / 20% / 30%:Treino 
+(50% — bloco mais antigo):Intervalo: 13/09/2026 04:32 UTC a 16/09/2026 16:32 UTCAmostras ($N$): 80.158 registosValidação
+
+(20% — bloco intermédio):Intervalo: 16/09/2026 16:32 UTC a 17/09/2026 21:20 UTCAmostras ($N$): 32.063 registosTeste 
+
+(30% — bloco mais recente):Intervalo: 17/09/2026 21:20 UTC a 20/09/2026 04:32 UTCAmostras ($N$): 48.096 registos
+
 
 ## 6. Scrum e diário
 
