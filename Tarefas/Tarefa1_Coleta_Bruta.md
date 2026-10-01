@@ -137,10 +137,10 @@ https://github.com/users/Leandro-Nas-Lemes/projects/1/views/1
 
 ## 6. Evidências gerais
 
-- Link do RFC:
-- Link do dicionário v0.1:
-- Link dos commits:
-- Link de `data/raw/` e do `config/`:
+- Link do RFC:  https://github.com/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II/blob/principal/doc/RFC_Preditor_Degradacao_Rede.md
+- Link do dicionário v0.1: https://github.com/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II/blob/principal/doc/dicionario_v0.1.md
+- Link dos commits: https://github.com/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II/commits/principal/Tarefas/Tarefa1_Coleta_Bruta.md  
+- Link de `data/raw/` e do `config/`: https://github.com/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II/tree/principal/data/raw /  https://github.com/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II/tree/principal/config
 
 ---
 
