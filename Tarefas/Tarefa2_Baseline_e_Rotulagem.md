@@ -177,7 +177,7 @@ Dentro do Período B, por fluxo, em ordem de tempo:
 
 ## 6. Scrum e diário
 
-- [ ] Board atualizado
+- [X] Board atualizado
 
 **Link do board:**
 
