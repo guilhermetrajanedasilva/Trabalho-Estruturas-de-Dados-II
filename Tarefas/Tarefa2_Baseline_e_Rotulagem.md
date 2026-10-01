@@ -7,7 +7,7 @@
 
 Mariana Moreira Barbosa, Samara Fernandes Soares, Leandro do Nascimento Lemes, Guilherme Trajane da Silva, Vitor Julião Diogo dos Santos
 
-**Scrum Master da tarefa:**  Mariana Moreira Barbosa
+**Scrum Master da tarefa:** Vitor Julião Diogo dos Santos
 
 **Repositório GitHub:**  https://github.com/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II
 
@@ -184,8 +184,11 @@ Dentro do Período B, por fluxo, em ordem de tempo:
 
 | Integrante | O que fiz nesta tarefa | Dificuldades | O que pretendo manter/ajustar |
 | ---------- | ---------------------- | ------------ | ----------------------------- |
-|            |                        |              |                               |
-
+| **Vitor Julião Diogo dos Santos** | Atuação como Scrum Master; cálculo do baseline do Período A, geração do `baseline_por_fluxo.csv` e validação do piso de 1.500 amostras. | Tratar o divisor do MAD quando $MAD=0$ sem gerar inconsistências. | Manter a revisão rigorosa dos contratos de dados e da ordem das regras de rotulagem. |
+| **Samara Fernandes Soares** | Implementação das métricas relativas do Período B (`z_robusto`, `aumento_pct`, `jitter_relativo`) e lógica das janelas móveis `n5`. | Lógica de cálculo acumulado das janelas móveis $N_5$ sem perder o contexto por `fluxo_id`. | Vetorizar ainda mais o cálculo das janelas temporais para otimizar a execução. |
+| **Leandro do Nascimento Lemes** | Aplicação da tabela de rotulagem (OK, RISCO, FALHA) na ordem exata dos critérios e auditoria das contagens. | Garantir que o `perda_pct` e timeouts tivessem prioridade sobre as regras de desvio estatístico. | Manter testes unitários e verificações em fluxos curtos e longos nas próximas tarefas. |
+| **Guilherme Trajane da Silva** | Organização da estrutura de ficheiros (`data/interim/`), versão do repositório no GitHub e recorte temporal (50/20/30) no Período B. | Ajustar o recorte de datas do treino/validação/teste sem contaminar os blocos entre si. | Manter a estrutura de branchs do GitHub organizada para a integração da árvore de decisão. |
+| **Mariana Moreira Barbosa** | Atualização e elaboração do Dicionário de Dados v0.2, mapeando colunas permitidas e garantindo a exclusão de variáveis proibidas. | Mapear claramente todas as variáveis relativas e isolar dados de rota (IP/País). | Assegurar que o dataset de entrada da árvore na Tarefa 3 contenha apenas as features autorizadas. |
 
 ---
 
