@@ -14,6 +14,10 @@ O projeto utiliza a infraestrutura global da **API do RIPE Atlas** como fonte at
 
 ---
 
+## Link do Arquivo Original CSV
+Segue abaixo o link do arquivo original, não incluímos nos arquivos por conta do tamanho, de quase 5 gb.
+https://drive.google.com/file/d/1nHvx5Ztpvruwz2qoNJRz9s-6RMX6XsoH/view?usp=sharing
+
 ## Integrantes do Grupo
 
 - **Guilherme Trajane da Silva**
