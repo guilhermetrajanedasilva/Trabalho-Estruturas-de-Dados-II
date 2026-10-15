@@ -1,0 +1,9 @@
+{
+  "projeto": "NetVision",
+  "measurement_id": 1001,
+  "janela_coleta_horas": 1,
+  "timestamp_execucao": "2026-10-15T00:57:32.929982",
+  "total_pares_consultados": 10,
+  "total_registros_coletados": 2190473,
+  "status_api": "HTTP 200 OK"
+}
