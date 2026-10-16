@@ -24,8 +24,8 @@
 
 **Não sai daqui:** troca de algoritmo (floresta, boosting, redes), limiar fino, model card.
 
-- [ ] Treino, validação e teste são os da Tarefa 2
-- [ ] A ficha de baseline não foi recalculada com o Período B
+- [x] Treino, validação e teste são os da Tarefa 2
+- [x] A ficha de baseline não foi recalculada com o Período B
 
 ---
 
@@ -35,8 +35,8 @@ Entram: `z_robusto`, `aumento_pct`, `jitter_relativo`, `perda_pct`, `timeout_atu
 
 Não entram: país, IP, `rota_id`, `fluxo_id`, nome do destino, RTT em milissegundos no lugar das métricas relativas.
 
-- [ ] Lista de colunas do treino colada no diário
-- [ ] Conferido que a classe (`OK` / `RISCO` / `FALHA`) é o alvo, não uma feature
+- [x] Lista de colunas do treino colada no diário
+- [x] Conferido que a classe (`OK` / `RISCO` / `FALHA`) é o alvo, não uma feature
 
 **Colunas usadas:**
 
