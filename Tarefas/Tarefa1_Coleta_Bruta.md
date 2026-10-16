@@ -88,7 +88,7 @@ Regras da coleta:
   MEASUREMENT_ID = 1001
   FORMATO_TABELAR = "parquet"
 
-  URL = f"[https://atlas.ripe.net/api/v2/measurements/](https://atlas.ripe.net/api/v2/measurements/){MEASUREMENT_ID}/results/"
+  URL = f"https://atlas.ripe.net/api/v2/measurements/{MEASUREMENT_ID}/results/"
   PARAMETROS = {
       "start": int(inicio_utc.timestamp()),
       "stop": int(fim_utc.timestamp()),
@@ -107,9 +107,9 @@ Regras da coleta:
 
 **N de registros brutos:336.326
 
-**N de fluxos: 67 fluxos coletados (64 fluxos válidos com baseline de $\ge 1.500$ amostras)
+**N de fluxos: 67 fluxos coletados (64 fluxos válidos com baseline de ≥ 1.500 amostras)
 
-**Caminho curto e caminho longo presentes (quais):Caminhos longos (transoceânicos): BR→JP (mediana de ~277 ms), BR→IN (mediana de ~339 ms) e BR→ZA (mediana de ~344 ms).
+**Caminho curto e caminho longo presentes (quais):Caminhos curtos (regionais/nacionais) e caminhos longos (transoceânicos): BR→JP (mediana de ~277 ms), e BR→IN (mediana de ~339 ms) e BR→ZA (mediana de ~344 ms).
 
 ## 4. Scrum
 
