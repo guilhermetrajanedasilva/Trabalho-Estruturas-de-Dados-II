@@ -189,9 +189,11 @@ Dentro do Período B, por fluxo, em ordem de tempo:
 
 ## 6. Scrum e diário
 
+**Link do Scrum:** https://github.com/users/guilhermetrajanedasilva/projects/7
+
 - [X] Board atualizado
 
-**Link do board:**
+**Link do board:** 
 
 
 | Integrante | O que fiz nesta tarefa | Dificuldades | O que pretendo manter/ajustar |
