@@ -173,20 +173,19 @@ Dentro do Período B, por fluxo, em ordem de tempo:
 - [x] Nenhum registro do Período A no treino
 - [x] Corte com data e N de cada bloco
 
-**Corte (datas e N treino / validação / teste):** 
-O recorte temporal foi efetuado estritamente dentro do Período B (13/09/2026 04:32 UTC a 20/09/2026 04:32 UTC), ordenado por timestamp para cada `fluxo_id`, mantendo a proporção aproximada de 50% / 20% / 30%:
+**Corte (datas e N treino / validação / teste):** O recorte temporal foi efetuado estritamente dentro do Período B (13/09/2026 04:32 UTC a 20/09/2026 04:32 UTC), ordenado por timestamp para cada `fluxo_id`, mantendo a proporção aproximada de 50% / 20% / 30%:
 
-* **Treino (50% — bloco mais antigo):**
-  * **Intervalo:** 13/09/2026 04:32 UTC a 16/09/2026 16:32 UTC
-  * **Amostras ($N$):** 80.158 registos
+*   **Treino (50% — bloco mais antigo):**
+    *   Intervalo: 13/09/2026 04:32 UTC a 16/09/2026 16:32 UTC
+    *   Amostras (N): 1.089.451 registros
 
-* **Validação (20% — bloco intermédio):**
-  * **Intervalo:** 16/09/2026 16:32 UTC a 17/09/2026 21:20 UTC
-  * **Amostras ($N$):** 32.063 registos
+*   **Validação (20% — bloco intermédio):**
+    *   Intervalo: 16/09/2026 16:32 UTC a 17/09/2026 21:20 UTC
+    *   Amostras (N): 435.780 registros
 
-* **Teste (30% — bloco mais recente):**
-  * **Intervalo:** 17/09/2026 21:20 UTC a 20/09/2026 04:32 UTC
-  * **Amostras ($N$):** 48.096 registos
+*   **Teste (30% — bloco mais recente):**
+    *   Intervalo: 17/09/2026 21:20 UTC a 20/09/2026 04:32 UTC
+    *   Amostras (N): 653.671 registros
 
 ## 6. Scrum e diário
 
