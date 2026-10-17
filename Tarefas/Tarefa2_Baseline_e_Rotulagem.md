@@ -81,9 +81,9 @@ Uma ficha por `fluxo_id`. Só o Período A. O Período B não entra na conta e n
 - [x] Ficha conferida em pelo menos um fluxo curto e um fluxo longo (as medianas podem ser muito diferentes; as duas são “normal”)
 - [x] Lista dos fluxos excluídos e o motivo (contagem abaixo de 1.500)
 
-**Fluxos com ficha:** 64 fluxos (apresentaram volume de amostras válidas $\ge 1.500$ no Período A).
+**Fluxos com ficha:** 10 fluxos (apresentaram volume de amostras válidas $\ge 1.500$ no Período A).
 
-**Fluxos excluídos:**  3 fluxos associados ao destino 170.81.100.114 (origem BR) foram marcados como baseline_insuficiente por apresentarem amostragem de RTT válido inferior ao limite mínimo de 1.500 registos no Período A.
+**Fluxos excluídos:**  0 fluxos excluídos (todos os fluxos desta amostra atingiram o limite mínimo no Período A).
 
 **Exemplo auditável (fluxo curto: mediana; fluxo longo: mediana):**
 
