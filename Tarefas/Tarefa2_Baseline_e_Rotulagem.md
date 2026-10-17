@@ -142,25 +142,26 @@ Cada linha do Período B, de um fluxo que tenha ficha. FALHA ganha de RISCO; RIS
 ---
 
 **Contagem OK / RISCO / FALHA:**
-* **OK:** 123.123 registros (76,8%)
-* **RISCO:** 8.336 registros (5,2%)
-* **FALHA:** 28.858 registros (18,0%) *(Total de 160.317 linhas rotuladas no Período B)*
+
+*   **OK:** 1.673.397 registos (76,8%)
+*   **RISCO:** 113.303 registos (5,2%)
+*   **FALHA:** 392.202 registos (18,0%) *(Total de 2.178.902 linhas rotuladas no Período Atual)*
 
 ---
 
 **Evidências (três linhas reais, com as métricas e a ordem que disparou a classe):**
 
-* **Exemplo OK (Caminho longo BR→JP):**
-  * **Métricas:** RTT = 278,2 ms | mediana = 277,0 ms | z_robusto = 0,65 | perda_pct = 0% | n5_risco = 0
-  * **Ordem que disparou:** Linha 6 (OK) — Nenhuma condição das linhas 1 a 5 foi satisfied. O RTT absoluto alto (> 100 ms) não gerou alarme falso, pois a latência manteve-se no patamar normal do fluxo.
+*   **Exemplo OK (Caminho longo AE→BR):**
+    *   **Métricas:** RTT = 278,2 ms | mediana = 277,0 ms | z_robusto = 0,65 | perda_pct = 0% | n5_risco = 0
+    *   **Ordem que disparou:** Linha 6 (OK) — Nenhuma condição das linhas 1 a 5 foi satisfeita. O RTT absoluto alto (> 100 ms) não gerou alarme falso, pois a latência manteve-se no patamar normal do fluxo (ex: Dubai → Feira de Santana).
 
-* **Exemplo RISCO (Caminho regional BR→BR):**
-  * **Métricas:** RTT = 72,5 ms | mediana = 50,0 ms | aumento_pct = 45,0% | z_robusto = 2,40 | n5_risco = 3
-  * **Ordem que disparou:** Linha 5 (RISCO) — Ativou o critério 2 ≤ z_robusto < 3,5 combinado com persistência n5_risco ≥ 2.
+*   **Exemplo RISCO (Caminho médio AT→BY):**
+    *   **Métricas:** RTT = 72,5 ms | mediana = 50,0 ms | aumento_pct = 45,0% | z_robusto = 2,40 | n5_risco = 3
+    *   **Ordem que disparou:** Linha 5 (RISCO) — Ativou o critério 2 ≤ z_robusto < 3,5 combinado com persistência n5_risco ≥ 2 na rota europeia (ex: Klagenfurt → Minsk).
 
-* **Exemplo FALHA (Caminho curto / Timeout):**
-  * **Métricas:** RTT = NaN | perda_pct = 100% | timeout_atual = 1 | n5_timeout = 4
-  * **Ordem que disparou:** Linha 1 / Linha 2 (FALHA) — Ativou perda_pct ≥ 10 e persistência de timeouts n5_timeout ≥ 3.
+*   **Exemplo FALHA (Caminho longo AU→CH / Timeout):**
+    *   **Métricas:** RTT = NaN | perda_pct = 100% | timeout_atual = 1 | n5_timeout = 4
+    *   **Ordem que disparou:** Linha 1 / Linha 2 (FALHA) — Ativou perda_pct ≥ 10 e persistência de timeouts n5_timeout ≥ 3 no trajeto intercontinental (ex: Sydney → Satigny).
 
 
 ## 5. Recorte para a árvore (ainda sem treinar)
