@@ -47,9 +47,9 @@ Mariana Moreira Barbosa, Samara Fernandes Soares, Leandro do Nascimento Lemes, G
 - [x] Nenhum RTT ausente foi gravado como 0
 - [x] Período A e Período B não compartilham timestamp do mesmo fluxo
 
-**N bruto:** 336.326 registros
+**N bruto:** 2.178.902 registros
 
-**N de fluxos:** 67 fluxos totais coletados
+**N de fluxos:** 10 fluxos totais coletados
 
 **Evidências:**  [Link para o notebook no GitHub](https://github.com/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II/blob/principal/2_Coleta_de_dados.ipynb)
 
