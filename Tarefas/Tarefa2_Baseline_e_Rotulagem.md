@@ -193,7 +193,7 @@ Dentro do Período B, por fluxo, em ordem de tempo:
 
 - [X] Board atualizado
 
-**Link do board:** 
+**Link do board:** https://github.com/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II/blob/principal/doc/dicionario_v0.2.md
 
 
 | Integrante | O que fiz nesta tarefa | Dificuldades | O que pretendo manter/ajustar |
