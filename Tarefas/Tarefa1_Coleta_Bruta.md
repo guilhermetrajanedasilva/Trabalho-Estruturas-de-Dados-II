@@ -105,9 +105,9 @@ Regras da coleta:
 - [x] Quantidade de timeouts
 - [x] RTT e perda descritos (mínimo, mediana, máximo) **sem** dizer OK, RISCO ou FALHA
 
-**N de registros brutos:336.326
+**N° bruto:** 2.178.902 registros
 
-**N de fluxos: 67 fluxos coletados (64 fluxos válidos com baseline de ≥ 1.500 amostras)
+**N° de fluxos:** 10 fluxos totais coletados
 
 **Caminho curto e caminho longo presentes (quais):Caminhos curtos (regionais/nacionais) e caminhos longos (transoceânicos): BR→JP (mediana de ~277 ms), e BR→IN (mediana de ~339 ms) e BR→ZA (mediana de ~344 ms).
 
