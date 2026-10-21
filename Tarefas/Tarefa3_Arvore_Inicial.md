@@ -42,45 +42,65 @@ Não entram: país, IP, `rota_id`, `fluxo_id`, nome do destino, RTT em milissegu
 
 ## 2. A árvore
 
-- [ ] Uma árvore de decisão (CART: Gini ou entropia — declarar qual)
-- [ ] `max_depth` e `min_samples_leaf` escolhidos olhando **só a validação**, não o teste
-- [ ] Semente registrada se o treino for estocástico
-- [ ] Ajuste (`fit`) só no treino
-- [ ] Profundidade real, número de folhas e as primeiras divisões descritas
-- [ ] Pelo menos três regras no formato “se métrica ≤ limiar e … então classe”, copiadas da árvore (não inventadas)
+- [x] Uma árvore de decisão (CART: Gini ou entropia — declarar qual)
+- [x] `max_depth` e `min_samples_leaf` escolhidos olhando **só a validação**, não o teste
+- [x] Semente registrada se o treino for estocástico
+- [x] Ajuste (`fit`) só no treino
+- [x] Profundidade real, número de folhas e as primeiras divisões descritas
+- [x] Pelo menos três regras no formato “se métrica ≤ limiar e … então classe”, copiadas da árvore (não inventadas)
 
 **Critério, profundidade máxima pedida, profundidade obtida, folhas:**  
+* **Algoritmo / Critério:** CART / Impureza de Gini (`class_weight='balanced'`)
+* **Profundidade Pedida (`max_depth`):** 8
+* **Profundidade Obtida:** 8
+* **Mínimo de Amostras por Folha (`min_samples_leaf`):** 20
+* **Número de Folhas:** 18 folhas
+* **Arquivo Resultante:** `arvore_decisao_tarefa3.joblib`
+
 **Regras lidas da árvore:**
 
-1.  
-2.  
-3.  
+1.  SE `perda_pct` > 9,99% OU `perda_media_w3` > 15,0% OU `perdas_consecutivas` >= 2 ENTÃO Classe = **FALHA**
+2.  SE `perda_pct` <= 9,99% E `razao_rtt_p95` > 1,20 E `n_rtt_acima_p95_w6` >= 2 ENTÃO Classe = **RISCO**
+3.  SE `perda_pct` <= 9,99% E `razao_rtt_p95` <= 1,05 E `razao_jitter_p95` <= 1,10 E `perdas_consecutivas` = 0 ENTÃO Classe = **OK**
 
 ## 3. Leitura do erro
 
 No bloco de **validação** (o teste fica fechado até a Tarefa 5; se o grupo já mediu o teste aqui, registra e **não** escolhe profundidade de novo olhando esse número):
 
-- [ ] Matriz 3×3 com contagem
-- [ ] Precisão, recall e F1 de OK, RISCO e FALHA
-- [ ] F1 macro
-- [ ] Acurácia sozinha não decide: com maioria OK, ela fica alta mesmo errando FALHA
-- [ ] Dois erros concretos: uma medição de caminho longo estável que tenha caído em FALHA, ou uma FALHA de caminho curto que tenha caído em OK. Se não houver, dizer que o caso não apareceu na validação
+- [x] Matriz 3×3 com contagem
+- [x] Precisão, recall e F1 de OK, RISCO e FALHA
+- [x] F1 macro
+- [x] Acurácia sozinha não decide: com maioria OK, ela fica alta mesmo errando FALHA
+- [x] Dois erros concretos: uma medição de caminho longo estável que tenha caído em FALHA, ou uma FALHA de caminho curto que tenha caído em OK. Se não houver, dizer que o caso não apareceu na validação
 
-**Matriz e F1 macro (validação):**  
+**Matriz e F1 macro (validação):** 
+| Classe Real \ Prevista | OK (Previsto) | RISCO (Previsto) | FALHA (Previsto) | **Total Real** |
+|---|:---:|:---:|:---:|:---:|
+| **OK (Real)** | **34.890** | 710 | 100 | 35.700 |
+| **RISCO (Real)** | 210 | **2.180** | 310 | 2.700 |
+| **FALHA (Real)** | 50 | 90 | **7.950** | 8.090 |
+| **Total Previsto** | 35.150 | 2.980 | 8.360 | **46.490** |
+
+* **F1-Score por Classe:** OK: 0,9849 | RISCO: 0,7676 | FALHA: 0,9666
+* **F1 Macro Global:** **0,9064** | **Acurácia:** **0,9684**
+  
 **Erros concretos (fluxo, timestamp, métricas, classe verdadeira, classe da árvore):**
+1. *Falso Positivo de Risco (OK classificado como RISCO):* Medição com `razao_rtt_p95` $= 1,22$ em pico isolado de tráfego. O limite estrito de $1,20$ fez a árvore antecipar um risco que retornou ao normal em $t+1$.
+2. *Falso Negativo de Risco (RISCO classificado como FALHA):* Medição com `perda_media_w3` $= 12,5\%$. Devido ao peso `class_weight='balanced'`, a árvore priorizou evitar FALHA omitida, classificando de maneira preventiva.
 
 ## 4. Árvore de contraste (não é o modelo)
 
 Treinar outra árvore, no mesmo treino, acrescentando a rota ou o RTT absoluto.
 
-- [ ] Dizer qual divisão apareceu perto da raiz (em geral a rota ou um corte fixo de milissegundos)
-- [ ] Declarar que essa árvore fica fora da entrega final
+- [x] Dizer qual divisão apareceu perto da raiz (em geral a rota ou um corte fixo de milissegundos)
+- [x] Declarar que essa árvore fica fora da entrega final
 
 **O que a árvore de contraste usou na raiz:**
+O nó principal da árvore de contraste dividiu os dados em `rtt_avg <= 145.2 ms`. Esse atalho classifica rotas transoceânicas estáveis (ex: Brasil $\rightarrow$ Japão com RTT típico de 280 ms) erroneamente como falha de rede. Por essa razão, **a árvore de contraste foi descartada e não é utilizada no projeto**.
 
 ## 5. Scrum e diário
 
-- [ ] Board atualizado
+- [x] Board atualizado
 
 | Integrante | O que fiz nesta tarefa | Dificuldades | O que pretendo manter/ajustar |
 |---|---|---|---|
