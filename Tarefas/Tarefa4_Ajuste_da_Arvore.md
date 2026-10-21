@@ -104,7 +104,7 @@ Manter os parâmetros definidos na Tarefa 4 como ponto de partida oficial para a
 
 | Integrante | O que fiz nesta tarefa | Dificuldades | O que pretendo manter/ajustar |
 |---|---|---|---|
-| | Ajuste de hiperparâmetros, geração das métricas e validação | Ajustar a poda sem perder recall em FALHA | Manter a rotina de validação estrita sem olhar o teste |
+| **Guilherme Trajane da Silva** | Ajuste de hiperparâmetros, geração das métricas e validação | Ajustar a poda sem perder recall em FALHA | Manter a rotina de validação estrita sem olhar o teste |
 
 ---
 
