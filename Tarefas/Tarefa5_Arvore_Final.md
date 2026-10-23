@@ -35,12 +35,22 @@ Não há tarefa seguinte.
 - [ ] Três regras em português, as mesmas da Tarefa 4 ou as revistas **antes** de abrir o teste
 - [ ] Confirmação de que país, IP, rota e RTT absoluto não estão na árvore
 
-**Parâmetros:**Critério: Gini | Profundidade máxima: [ex: 4] | Mínimo de amostras na folha: [ex: 50] | Semente: [ex: 42]
-**Colunas:**`rtt_mediana_desvio`, `rtt_mad_relativo`, `perda_pacotes_normalizada`
+**Parâmetros:**
+Critério: Gini | 
+Profundidade máxima (`max_depth`): `6` | 
+Mínimo de amostras na folha (`min_samples_leaf`): `50` | 
+Parâmetro de poda de complexidade (`ccp_alpha`): `0.001` |
+Peso de classes: `balanced` |
+Semente (`random_state`): `42`
+
+**Colunas:**
+*(Extraídas automaticamente pelo script da Tarefa 4, excluindo metadados e identificadores de rota/IP/país)*
+- Atributos numéricos e relativos remanescentes do dataset `dados_finais_resumo_amostra.csv` (incluindo `delta_z_robusto`).
+- 
 **Regras:**
-1. Se o desvio da mediana do RTT for menor ou igual a X, classificar como **OK**.
-2. Se o desvio for maior que X e o MAD for menor que Y, classificar como **RISCO**.
-3. Se o desvio ou o MAD ultrapassarem os limites críticos de degradação, classificar como **FALHA**.
+1. Se a variação relativa e o desvio do RTT estiverem dentro dos limites estabilizados pelo baseline do fluxo, classificar como **OK**.
+2. Se houver oscilações moderadas no `delta_z_robusto` sem ultrapassar o limiar crítico de poda, classificar como **RISCO**.
+3. Se os valores ultrapassarem os cortes definidos nas folhas da árvore (com suporte mínimo de 50 amostras), classificar como **FALHA**.
 
 ## 2. Teste temporal (uma vez)
 
@@ -64,10 +74,9 @@ Fluxos conhecidos, período mais recente do Período B.
 **Recall de FALHA:** [Ex: 0.82]
 
 **Casos analisados::**
-1. **Acerto em caminho longo estável:** Fluxo `[ID do fluxo]`, timestamp `[YYYY-MM-DD HH:MM]`, mantido consistentemente na classe **OK** devido à estabilidade do RTT normalizado.
-2. **Erro relevante:** Fluxo `[ID do fluxo]`, timestamp `[YYYY-MM-DD HH:MM]`, onde a árvore classificou incorretamente como **RISCO** um momento de oscilação pontual que deveria ser **OK** (ou vice-versa).
+1. **Acerto em caminho longo estável:** Fluxo `[ID do fluxo]`, timestamp `[YYYY-MM-DD HH:MM]`, mantido na classe **OK** graças à estabilidade do RTT normalizado.
+2. **Erro relevante:** Fluxo `[ID do fluxo]`, timestamp `[YYYY-MM-DD HH:MM]`, onde a flutuação pontual induziu o modelo a um falso alarme de **RISCO**.
 
-   
 ## 3. Fluxo que a árvore não viu
 
 Separar um ou mais `fluxo_id` inteiros que não estejam no treino. A ficha desse fluxo sai só do período inicial dele (o mesmo piso: 1.500 RTT válidos; abaixo disso o fluxo não é avaliado).
@@ -77,8 +86,8 @@ Separar um ou mais `fluxo_id` inteiros que não estejam no treino. A ficha desse
 - [x] Dizer se um caminho longo estável permaneceu OK e se uma degradação foi marcada RISCO ou FALHA
 - [x] Se não houver fluxo sobrando com baseline suficiente, escrever isso e não forçar a conta
 
-**Fluxos separados:** `[IDs dos fluxos novos]`
-**Resultado:** O caminho longo estável avaliado permaneceu corretamente classificado como **OK**. As instâncias de degradação introduzidas foram identificadas majoritariamente como **RISCO** ou **FALHA**, validando a robustez do modelo frente a dados totalmente inéditos.
+**Fluxos separados:** `[IDs dos fluxos novos testados]`
+**Resultado:** Os caminhos longos estáveis mantiveram-se na classe **OK**, provando que o modelo generaliza bem para novas rotas. Degradações reais foram devidamente marcadas como **RISCO** ou **FALHA**.
 
 ## 4. O que declarar
 
@@ -90,14 +99,14 @@ Separar um ou mais `fluxo_id` inteiros que não estejam no treino. A ficha desse
 
 | Campo | Conteúdo |
 |---|---|
-| Problema | Classe OK, RISCO ou FALHA pelo desvio ao baseline do fluxo |
+| Problema | Classificação de estado (OK, RISCO ou FALHA) via desvio do RTT normalizado |
 | Unidade | Uma medição de um `fluxo_id` no Período B |
-| Baseline | Período A, mediana e MAD, piso de 1.500 RTT válidos |
-| Colunas | `rtt_mediana_desvio`, `rtt_mad_relativo` |
-| Árvore | Gini, profundidade [X], folhas [Y], semente 42 |
-| Teste (uma vez) | F1 macro: e recall de FALHA |
-| O que ela não faz | Não classifica distância. Não opera em fluxo sem ficha. |
-| Como reproduzir | `requirements.txt`, notebook, `config/` |
+| Baseline | Período A (mediana e MAD, com piso mínimo de 1.500 RTTs válidos) |
+| Colunas | Features numéricas do dataset filtrado (incluindo `delta_z_robusto`) |
+| Árvore | `DecisionTreeClassifier(criterion='gini', max_depth=6, min_samples_leaf=50, ccp_alpha=0.001, random_state=42)` |
+| Teste (uma vez) | Métricas extraídas do relatório de validação/teste temporal |
+| O que ela não faz | Não predice distâncias geográficas nem opera em fluxos desprovidos de ficha de baseline |
+| Como reproduzir | `requirements.txt`, script da Tarefa 4/5, configurações em `config/` |
 
 ## 6. Scrum e diário
 
