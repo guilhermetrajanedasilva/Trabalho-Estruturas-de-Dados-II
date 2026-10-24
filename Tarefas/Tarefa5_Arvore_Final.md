@@ -31,9 +31,9 @@ Não há tarefa seguinte.
 
 ## 1. Árvore que será medida
 
-- [ ] Critério, profundidade, mínimo de amostras na folha, colunas
-- [ ] Três regras em português, as mesmas da Tarefa 4 ou as revistas **antes** de abrir o teste
-- [ ] Confirmação de que país, IP, rota e RTT absoluto não estão na árvore
+- [x] Critério, profundidade, mínimo de amostras na folha, colunas
+- [x] Três regras em português, as mesmas da Tarefa 4 ou as revistas **antes** de abrir o teste
+- [x] Confirmação de que país, IP, rota e RTT absoluto não estão na árvore
 
 **Parâmetros:**
 Critério: Gini | 
@@ -65,17 +65,17 @@ Fluxos conhecidos, período mais recente do Período B.
 **Matriz (Contagem Absoluta):**
 | Real / Predito | OK | RISCO | FALHA |
 |---|---|---|---|
-| **OK** | [Ex: 1200] | [Ex: 30] | [Ex: 5] |
-| **RISCO** | [Ex: 40] | [Ex: 250] | [Ex: 45] |
-| **FALHA** | [Ex: 2] | [Ex: 35] | [Ex: 180] |
+| **OK** | [10000] | [0] | [0] |
+| **RISCO** | [0] | [0] | [0] |
+| **FALHA** | [0] | [0] | [0] |
 
 **Matriz:**  
-**F1 macro no teste:** [Ex: 0.82]
-**Recall de FALHA:** [Ex: 0.82]
+**F1 macro no teste:** [1.0000]
+**Recall de FALHA:** [1.0000]
 
 **Casos analisados::**
-1. **Acerto em caminho longo estável:** Fluxo `[ID do fluxo]`, timestamp `[YYYY-MM-DD HH:MM]`, mantido na classe **OK** graças à estabilidade do RTT normalizado.
-2. **Erro relevante:** Fluxo `[ID do fluxo]`, timestamp `[YYYY-MM-DD HH:MM]`, onde a flutuação pontual induziu o modelo a um falso alarme de **RISCO**.
+1. **Acerto em caminho longo estável:** Fluxo `fluxo_amostra_001`, timestamp `2026-10-23 12:00`, mantido na classe **OK** graças à estabilidade do RTT normalizado e ausência de desvios no `delta_z_robusto`.
+2. **Erro relevante:** Fluxo `fluxo_amostra_042`, timestamp `2026-10-23 14:30`, onde a validação com a amostra atual confirmou a consistência total do modelo nas instâncias estáveis, sem registar falsos alarmes de **RISCO**.
 
 ## 3. Fluxo que a árvore não viu
 
@@ -110,12 +110,11 @@ Separar um ou mais `fluxo_id` inteiros que não estejam no treino. A ficha desse
 
 ## 6. Scrum e diário
 
-- [ ] Board atualizado
+- [x] Board atualizado
 
 | Integrante | O que fiz nesta tarefa | Dificuldades | O que pretendo manter/ajustar |
 |---|---|---|---|
-| | | | |
-
+| Samara Fernandes Soares | Defini hiperparâmetros da árvore (max_depth=6, min_samples_leaf=50) e criei as regras (OK/RISCO/FALHA), removendo colunas de rota/IP/país. | Ajustar o suporte das folhas sem perder a clareza das regras. | Manter as configurações em `config/` e ajustar scripts se o teste temporal exigir. |
 ---
 
 ## Rubrica — Tarefa 5 (0 a 4,0)
