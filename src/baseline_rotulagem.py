@@ -1,24 +1,3 @@
-#!/usr/bin/env python3
-"""
-Tarefa 2 — Baseline do fluxo e rotulagem OK / RISCO / FALHA — Projeto NetVision (Grupo 15)
-
-Lê o bruto da Tarefa 1 (data/raw/ping_bruto.csv) e, nesta ordem obrigatória:
-  1. inspeção do bruto (sem rótulo)  -> data/interim/ping_trabalho.csv
-  2. ficha de baseline por fluxo, SÓ com o Período A, congelada
-                                     -> data/processed/baseline_por_fluxo.csv
-  3. métricas relativas de cada medição do Período B (só com a ficha congelada)
-  4. rótulo pela tabela da tarefa, na ordem (FALHA > RISCO > OK)
-                                     -> data/processed/dataset_rotulado_B.csv
-  5. recorte temporal dentro de B (treino mais antigo, teste mais recente)
-                                     -> data/processed/corte_temporal.csv
-
-Não treina árvore, não escolhe profundidade, não calcula acurácia/F1.
-Limiares e fórmulas ficam em config/config_rotulagem.json; os períodos vêm de
-config/config_coleta.json (mesma fonte da Tarefa 1).
-
-Uso
-  python tarefa2_baseline_rotulagem.py [--base-dir CAMINHO] [--recalcular-baseline]
-"""
 import argparse
 import hashlib
 import json
@@ -73,7 +52,7 @@ def sha256(caminho: Path) -> str:
 def inspecionar(pastas, cfg_col) -> tuple:
     csv = pastas["raw"] / "ping_bruto.csv"
     if not csv.exists():
-        sys.exit(f"Bruto da Tarefa 1 não encontrado: {csv}\nRode antes: python tarefa1_coleta_bruta.py")
+        sys.exit(f"Bruto da Tarefa 1 não encontrado: {csv}\nRode antes: python coleta_bruta.py")
     df = pd.read_csv(csv, dtype={"fluxo_id": str, "dst_addr": str})
     obrig = {"timestamp", "timestamp_epoch", "measurement_id", "probe_id", "dst_addr", "fluxo_id",
              "rtt_avg_ms", "enviados", "recebidos", "perda_pct", "jitter_ms", "timeout_atual"}
@@ -321,10 +300,13 @@ def exemplos_auditaveis(d: pd.DataFrame, ficha_ok: pd.DataFrame) -> pd.DataFrame
 def main():
     ap = argparse.ArgumentParser(description="Tarefa 2 — baseline por fluxo e rotulagem do Período B")
     ap.add_argument("--base-dir", type=Path, default=Path(__file__).resolve().parent)
+    ap.add_argument("--drive", nargs="?", const="", default=None, metavar="PASTA",
+                    help="Google Colab: salva tudo em Meu Drive/PASTA (padrão: netvision)")
     ap.add_argument("--recalcular-baseline", action="store_true",
                     help="regrava o baseline congelado (só se o bruto foi versionado de propósito)")
     args = ap.parse_args()
-    pastas = pastas_do_projeto(args.base_dir.resolve())
+    from drive_colab import resolver_base
+    pastas = pastas_do_projeto(resolver_base(args.base_dir, args.drive))
     cfg_col = ler_json(pastas["config"] / "config_coleta.json")
     cfg_rot = ler_json(pastas["config"] / "config_rotulagem.json")
     pd.set_option("display.width", 250)
