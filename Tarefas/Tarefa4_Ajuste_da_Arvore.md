@@ -70,7 +70,7 @@ Ao todo foram avaliadas 960 combinações só na validação (`reports/t4_busca_
 - **Arquivos:** `models/arvore_tarefa4.joblib`, regras em `reports/t4_regras.txt` e parâmetros em `config/config_arvore.json` (chave `final`)
 - **Fit só no treino** (10.067 linhas); o teste não foi carregado
 
-**Regras** (as 7 folhas com mais amostras; as 12 estão em `reports/t4_regras.csv`):
+**Regras** (as 7 folhas com mais amostras; as 12 estão em `reports/t4_regras.txt`):
 
 1. SE z_robusto <= 2,01 E jitter_relativo <= 3,00 E perda_pct <= 16,67 E n5_timeout <= 2,50 ENTÃO OK  *(folha com 7334 amostras)*
 2. SE z_robusto > 3,50 ENTÃO FALHA  *(folha com 1239 amostras)*
@@ -110,10 +110,10 @@ Duas ressalvas. Primeiro, esta comparação foi feita na mesma validação que e
 ## 4. Revisão com o docente
 
 **O que foi mostrado:**  
-A tabela da seção 1 (erro → mudança), a comparação Tarefa 3 → Tarefa 4 da seção 3, o resultado negativo da coluna `delta_z_robusto`, da poda e do `class_weight`, e a confirmação de que nenhuma coluna de rota, país, IP ou RTT absoluto entrou.
+*(a preencher pelo grupo depois da revisão com a docente)*. Sugestão do que mostrar: a tabela da seção 1 (erro → mudança), a comparação Tarefa 3 → Tarefa 4 da seção 3, o resultado negativo da coluna `delta_z_robusto`, da poda e do `class_weight`, e a confirmação de que nenhuma coluna de rota, país, IP ou RTT absoluto entrou.
 
 **O que foi pedido para ajustar antes da Tarefa 5:**  
-Ajustes na arquitetura do repositório, com os arquivos em python todos no mesmo formato, atualização no baseline.
+*(a preencher pelo grupo)*
 
 ---
 
