@@ -112,10 +112,6 @@ A coleta é idempotente: se o JSON de um par e período já existe, ele não é 
 - [Dicionário de dados v0.4 — colunas e parâmetros da árvore final e arquivos da Tarefa 5](doc/dicionario_v0.4.md)
 - [Diários das Tarefas 1 a 5](doc/)
 
-## Link do arquivo original da coleta anterior
-A primeira versão da coleta usava a medição 1001, com cerca de 5 GB de CSV, que não foi incluído no repositório por causa do tamanho. Ela foi substituída pela coleta mesh descrita acima, mas o arquivo continua disponível:
-https://drive.google.com/file/d/1nHvx5Ztpvruwz2qoNJRz9s-6RMX6XsoH/view?usp=sharing
-
 ---
 
 ## Integrantes do grupo
