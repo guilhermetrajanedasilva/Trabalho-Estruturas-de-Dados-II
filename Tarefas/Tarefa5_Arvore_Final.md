@@ -3,9 +3,12 @@
 **Período:** 12/10/2026 a 25/10/2026  
 **Projeto:** Preditor de degradação de rede com RTT normalizado (independente da rota)
 
+
+
 **Equipe:** Mariana Moreira Barbosa, Samara Fernandes Soares, Leandro do Nascimento Lemes, Guilherme Trajane da Silva, Vitor Julião Diogo dos Santos
 
-**Scrum Master da tarefa:**  
+**Scrum Master da tarefa:**  Samara Fernandes Soares
+
 **Repositório GitHub:**
 
 > A árvore que entra aqui é a da Tarefa 4. O baseline e o rótulo são os da Tarefa 2. O teste, guardado desde a Tarefa 2, é medido **uma vez**.
@@ -114,7 +117,11 @@ Separar um ou mais `fluxo_id` inteiros que não estejam no treino. A ficha desse
 
 | Integrante | O que fiz nesta tarefa | Dificuldades | O que pretendo manter/ajustar |
 |---|---|---|---|
-| Samara Fernandes Soares | Defini hiperparâmetros da árvore (max_depth=6, min_samples_leaf=50) e criei as regras (OK/RISCO/FALHA), removendo colunas de rota/IP/país. | Ajustar o suporte das folhas sem perder a clareza das regras. | Manter as configurações em `config/` e ajustar scripts se o teste temporal exigir. |
+| **Vitor Julião Diogo dos Santos** | Assegurei que o fluxo de trabalho terminaria na Tarefa 5 sem modificações no algoritmo, orquestrei a revisão do relatório de limitações e supervisionei a execução única do script de teste. | Garantir a disciplina da equipe para rodar o teste temporal uma única vez e reportar os números friamente (mesmo que apresentassem falhas em casos específicos). | Manter a transparência total sobre as limitações do projeto, como o fato de sermos um "detector" do estado atual e não um preditor. |
+| **Mariana Moreira Barbosa** | Programei e executei a rotina *leave-one-flow-out* para a validação dos 8 fluxos não vistos, estruturando os resultados de recall de OK, RISCO e FALHA para cada iteração. | Compreender as quedas acentuadas de recall, como o caso específico de Feira de Santana → Dubai (recall de FALHA de 0,4483) devido a perda parcial não absorvida pelo restante do dataset. | Registrar que em projetos futuros precisaremos de um número maior e mais diversificado de rotas no baseline para evitar dependência estatística de poucos fluxos. |
+| **Guilherme Trajane da Silva** | Avaliei e cataloguei os dois únicos erros reportados no teste temporal (`reports/t5_erros_teste.csv`), demonstrando que o problema foi o desvio na tolerância decimal do limiar aprendido (2,011 ao invés de 2,0). | Tentar encontrar erros clássicos de aprendizado no teste, sendo que o que ocorreu foi apenas um desvio de aproximação de ponto flutuante na árvore. | Conservar a metodologia rigorosa de debugar manualmente os erros de classificação nos logs brutos em oposição a confiar cegamente nas métricas agregadas. |
+| **Leandro do Nascimento Lemes** | Compilei a Ficha Técnica Final da árvore, descrevendo todos os artefatos de entrada, hiperparâmetros, regras de reprodutibilidade e as limitações declaradas do modelo para o escopo final. | Sistematizar claramente a diferença conceitual do nosso artefato, deixando claro que se trata da detecção de desvios relativos no presente (detector) e não previsão com deslocamento de tempo (preditor). | Manter a escrita acadêmica voltada para os dados reais, evitando jargões promissórios sobre a inteligência da árvore em interpretar fisicamente o hardware da rede. |
+| **Samara Fernandes Soares (Scrum Master)** | Defini hiperparâmetros da árvore (`max_depth=5`, `min_samples_leaf=2`) e criei as regras (OK/RISCO/FALHA), removendo colunas de rota/IP/país. | Ajustar o suporte das folhas sem perder a clareza das regras, especialmente mantendo o controle total sobre o que entrava no nó folha para cada decisão. | Manter as configurações em `config/` e ajustar scripts se o escopo de teste temporal vier a exigir novas rodadas no futuro. |
 ---
 
 ## Rubrica — Tarefa 5 (0 a 4,0)
