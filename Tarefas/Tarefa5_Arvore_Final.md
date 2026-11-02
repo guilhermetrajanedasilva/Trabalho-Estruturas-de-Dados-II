@@ -38,26 +38,28 @@ Não há tarefa seguinte.
 - [x] Três regras em português, as mesmas da Tarefa 4 ou as revistas **antes** de abrir o teste
 - [x] Confirmação de que país, IP, rota e RTT absoluto não estão na árvore
 
-**Parâmetros:**
-Critério: Gini | 
-Profundidade máxima (`max_depth`): `6` | 
-Mínimo de amostras na folha (`min_samples_leaf`): `50` | 
-Parâmetro de poda de complexidade (`ccp_alpha`): `0.001` |
-Peso de classes: `balanced` |
-Semente (`random_state`): `42`
+**Parâmetros (os da Tarefa 4, em `config/config_arvore.json`):**
+Critério: Gini |
+Profundidade máxima (`max_depth`): `5` (obtida: 5) |
+Mínimo de amostras na folha (`min_samples_leaf`): `2` |
+Poda de complexidade (`ccp_alpha`): `0` |
+Peso de classes: nenhum |
+Semente (`random_state`): `42` |
+Folhas: 12
 
-**Colunas:**
-*(Extraídas automaticamente pelo script da Tarefa 4, excluindo metadados e identificadores de rota/IP/país)*
-- Atributos numéricos e relativos remanescentes do dataset `dados_finais_resumo_amostra.csv` (incluindo `delta_z_robusto`).
-- 
-**Regras:**
-1. Se a variação relativa e o desvio do RTT estiverem dentro dos limites estabilizados pelo baseline do fluxo, classificar como **OK**.
-2. Se houver oscilações moderadas no `delta_z_robusto` sem ultrapassar o limiar crítico de poda, classificar como **RISCO**.
-3. Se os valores ultrapassarem os cortes definidos nas folhas da árvore (com suporte mínimo de 50 amostras), classificar como **FALHA**.
+**Colunas (8, todas relativas ao baseline do fluxo):** `z_robusto`, `aumento_pct`, `jitter_relativo`, `perda_pct`, `timeout_atual`, `n5_timeout`, `n5_aumento80`, `n5_risco`. O alvo é `classe`. A coluna `delta_z_robusto`, testada na Tarefa 4, não foi adotada.
 
-## 2. Teste temporal (uma vez)
+**Regras** (lidas da árvore; as 12 folhas estão em `reports/t5_regras.txt` e a figura em `reports/arvore_final.png`, onde o vetor `value` de cada nó segue a ordem [FALHA, OK, RISCO]):
 
-Fluxos conhecidos, período mais recente do Período B.
+1. Se `z_robusto` > 3,50 (RTT muito acima do normal do próprio fluxo), classificar como **FALHA** (1.239 amostras de treino).
+2. Se `2,10 < z_robusto ≤ 3,50` e `perda_pct` ≤ 16,67 e `n5_risco` > 1,5 (desvio moderado repetido nas últimas 5 medições), ou se `z_robusto` ≤ 2,10 e `jitter_relativo` > 3,00 e `n5_risco` > 1,5, classificar como **RISCO** (631 e 430 amostras).
+3. Se `z_robusto` ≤ 2,01, `jitter_relativo` ≤ 3,00, `perda_pct` ≤ 16,67 e `n5_timeout` ≤ 2,5, classificar como **OK** (7.334 amostras). Perda acima de 16,67% (uma perda de 1 pacote em 3 já é 33%) ou `n5_timeout` ≥ 3 viram **FALHA** nas folhas restantes.
+
+Confirmado no script: país, IP, rota, `fluxo_id` e RTT absoluto não estão na árvore.
+
+## 2. Teste temporal (uma vez)## 2. Teste temporal (uma vez)
+
+Fluxos conhecidos, período mais recente do Período B (18/09/2026 01:58 UTC a 20/09/2026 04:31 UTC, 6.034 linhas). O script `arvore_final.py` grava `reports/t5_teste_unico.json` e se recusa a medir o teste de novo sem `--repetir`.
 
 - [x] Matriz 3×3 com contagem, não só porcentagem
 - [x] Precisão, recall e F1 de OK, RISCO e FALHA
@@ -65,20 +67,30 @@ Fluxos conhecidos, período mais recente do Período B.
 - [x] Recall de FALHA e a troca RISCO ↔ FALHA comentados
 - [x] Dois casos: um acerto em caminho longo estável (classe OK) e um erro relevante (dizer o fluxo e o timestamp)
 
-**Matriz (Contagem Absoluta):**
-| Real / Predito | OK | RISCO | FALHA |
-|---|---|---|---|
-| **OK** | [10000] | [0] | [0] |
-| **RISCO** | [0] | [0] | [0] |
-| **FALHA** | [0] | [0] | [0] |
+**Matriz (contagem absoluta):**
 
-**Matriz:**  
-**F1 macro no teste:** [1.0000]
-**Recall de FALHA:** [1.0000]
+| Real \ Previsto | OK | RISCO | FALHA | Total real |
+|---|---:|---:|---:|---:|
+| **OK** | 4.111 | 0 | 0 | 4.111 |
+| **RISCO** | 2 | 818 | 0 | 820 |
+| **FALHA** | 0 | 0 | 1.103 | 1.103 |
+| **Total previsto** | 4.113 | 818 | 1.103 | 6.034 |
 
-**Casos analisados::**
-1. **Acerto em caminho longo estável:** Fluxo `fluxo_amostra_001`, timestamp `2026-10-23 12:00`, mantido na classe **OK** graças à estabilidade do RTT normalizado e ausência de desvios no `delta_z_robusto`.
-2. **Erro relevante:** Fluxo `fluxo_amostra_042`, timestamp `2026-10-23 14:30`, onde a validação com a amostra atual confirmou a consistência total do modelo nas instâncias estáveis, sem registar falsos alarmes de **RISCO**.
+| | OK | RISCO | FALHA |
+|---|---:|---:|---:|
+| Precisão | 0,9995 | 1,0000 | 1,0000 |
+| Recall | 1,0000 | 0,9976 | 1,0000 |
+| F1 | 0,9998 | 0,9988 | 1,0000 |
+
+**F1 macro no teste:** 0,9995  
+**Recall de FALHA:** 1,0000  
+**Acurácia:** 0,9997 (balanceada: 0,9992)
+
+**Troca RISCO ↔ FALHA:** nenhuma (0 de RISCO para FALHA e 0 de FALHA para RISCO). Todas as 1.103 FALHA do teste foram acertadas. O único tipo de erro foi RISCO previsto como OK (2 linhas).
+
+**Casos analisados:**
+1. **Acerto em caminho longo estável:** fluxo `7586|80.77.4.60` (Cochabamba → Dubai, mediana do Período A de 373,1 ms), 18/09/2026 02:09:47 UTC. RTT = 377,4 ms, `z_robusto` = 0,90, `aumento_pct` = 1,15%, `jitter_relativo` = 0,73, `perda_pct` = 0. Classe verdadeira OK e previsão OK. O RTT é alto em termos absolutos e a árvore não deu alarme, porque está no patamar normal daquele fluxo.
+2. **Erro relevante:** fluxo `6878|143.205.170.32` (Minsk → Klagenfurt, caminho curto), 18/09/2026 19:50:01 UTC. `z_robusto` = 2,0101, `n5_risco` = 2, RTT = 26,2 ms. Classe verdadeira RISCO, previsão OK. O outro erro é parecido: fluxo `7508|94.199.170.201` (Osasco → Feldkirch), 18/09/2026 07:40:45 UTC, `z_robusto` = 2,0020, `n5_risco` = 4. Os dois estão a menos de 0,02 de `z_robusto` do limiar 2,0 da tabela de rotulagem. A árvore aprendeu o corte em 2,011 (ponto entre os valores vistos no treino), e a tabela usa 2,0 exato. É uma diferença de limiar aprendido, não um desvio relevante da rede. Arquivo: `reports/t5_erros_teste.csv`.
 
 ## 3. Fluxo que a árvore não viu
 
@@ -89,27 +101,51 @@ Separar um ou mais `fluxo_id` inteiros que não estejam no treino. A ficha desse
 - [x] Dizer se um caminho longo estável permaneceu OK e se uma degradação foi marcada RISCO ou FALHA
 - [x] Se não houver fluxo sobrando com baseline suficiente, escrever isso e não forçar a conta
 
-**Fluxos separados:** `[IDs dos fluxos novos testados]`
-**Resultado:** Os caminhos longos estáveis mantiveram-se na classe **OK**, provando que o modelo generaliza bem para novas rotas. Degradações reais foram devidamente marcadas como **RISCO** ou **FALHA**.
+Cada um dos 8 fluxos foi separado por vez (*leave-one-flow-out*): a árvore é treinada com o treino dos outros 7 fluxos (parâmetros da Tarefa 4) e avaliada em todo o Período B do fluxo separado. O fluxo separado nunca aparece no treino (conferido por `assert` no script). A ficha dele vem só do Período A dele, a mesma da Tarefa 2 (todos têm mais de 1.500 RTT válidos); a mediana e o MAD não usam o trecho avaliado.
+
+**Fluxos separados:** os 8 fluxos, um de cada vez (`reports/t5_fluxos_nao_vistos.csv`).
+
+| Fluxo | Rota | Mediana A (ms) | Linhas B | OK / RISCO / FALHA reais | Acurácia | F1 macro* | Recall OK | Recall RISCO | Recall FALHA | Erros |
+|---|---|---:|---:|---|---:|---:|---:|---:|---:|---:|
+| 6719\|203.41.0.51 | Beauharnois → Melbourne | 228,6 | 2.516 | 1.426 / 0 / 1.090 | 1,0000 | 1,0000 | 1,0000 | — | 1,0000 | 0 |
+| 6878\|143.205.170.32 | Minsk → Klagenfurt (curto) | 26,0 | 2.520 | 2.389 / 71 / 60 | 1,0000 | 1,0000 | 1,0000 | 1,0000 | 1,0000 | 0 |
+| 6891\|63.222.248.5 | Belo Horizonte → Dubai | 367,7 | 2.516 | 2.019 / 415 / 82 | 0,9956 | 0,9899 | 0,9985 | 0,9807 | 1,0000 | 11 |
+| 7258\|202.87.175.244 | Richterswil → Perth | 338,1 | 2.516 | 407 / 1.153 / 956 | 0,9964 | 0,9971 | 1,0000 | 1,0000 | 0,9906 | 9 |
+| 7307\|37.252.245.94 | Feira de Santana → Dubai | 343,5 | 2.515 | 2.434 / 23 / 58 | 0,9873 | 0,8708 | 1,0000 | 1,0000 | 0,4483 | 32 |
+| 7508\|94.199.170.201 | Osasco → Feldkirch | 199,3 | 2.513 | 2.153 / 182 / 178 | 0,9988 | 0,9970 | 0,9991 | 0,9945 | 1,0000 | 3 |
+| 7586\|80.77.4.60 | Cochabamba → Dubai | 373,1 | 2.519 | 1.793 / 571 / 155 | 0,9996 | 0,9996 | 0,9994 | 1,0000 | 1,0000 | 1 |
+| 7656\|103.153.238.101 | Satigny → Sydney | 299,6 | 2.515 | 2.276 / 32 / 207 | 1,0000 | 1,0000 | 1,0000 | 1,0000 | 1,0000 | 0 |
+
+\* F1 macro só sobre as classes que existem no fluxo (Beauharnois → Melbourne não tem RISCO).
+
+**Resultado:**
+- **Caminhos longos estáveis permaneceram OK:** o recall de OK ficou entre 0,9985 e 1,0000 em todos os fluxos longos, sem a árvore ter visto o fluxo. O fluxo curto (Minsk → Klagenfurt), quando separado, deixa o treino sem nenhum caminho curto e mesmo assim saiu com 100% de acerto: as métricas relativas não dependem do comprimento do caminho.
+- **Degradações foram marcadas:** o recall de RISCO foi de 0,98 a 1,00 e o de FALHA ficou em 1,00 em 6 dos 8 fluxos. Richterswil → Perth teve recall de FALHA de 0,9906 (9 de 956 FALHA previstas como RISCO).
+- **Pior caso: Feira de Santana → Dubai**, recall de FALHA de **0,4483** (32 de 58 FALHA previstas como OK). 30 dos 32 erros são medições com perda parcial de 33%, 50% ou 67% (1 a 2 pacotes perdidos em 3) e RTT dentro do normal, que a tabela de rotulagem classifica como FALHA. Explicação provável, não testada: Feira de Santana → Dubai concentra boa parte da perda parcial do projeto, e sem ele no treino a árvore vê poucos exemplos disso. Detalhe em `reports/t5_fluxos_nao_vistos_erros.csv`.
+- **Limite do experimento:** com 8 fluxos e um único caminho curto, o resultado de cada fluxo separado depende muito de quantos exemplos raros (perda, timeout) os outros 7 fluxos têm.
 
 ## 4. O que declarar
 
-- [x] Se a árvore só repete a tabela de rótulo, dizer isso: o rótulo foi feito com as mesmas métricas, então a árvore está aprendendo a política, não um ticket de roteador
-- [x] Se o alvo for o estado 12 minutos à frente, comparar com a regra “repetir a classe atual”. Sem ganho nessa comparação, o entregável é um **detector** do estado atual, não um preditor
-- [x] Limitações: baseline fixo não acompanha troca de rota; rajada curta estima mal o jitter; Anchors não são a rede do campus
+- [x] **A árvore repete a tabela de rótulo.** O rótulo da Tarefa 2 foi feito com as mesmas métricas que a árvore recebe, então ela reaprende a política de rotulagem: F1 macro de 0,9995 no teste e 0,9991–1,0000 na validação mostram que a política é quase perfeitamente aprendível só com colunas relativas, não que a árvore descobriu algo sobre a rede. Não é um modelo de "ticket de roteador". Os 2 erros do teste vêm de a árvore aprender o corte de `z_robusto` em 2,011 em vez de 2,0.
+- [x] **Detector, não preditor.** O alvo desta entrega é o estado **atual** da medição (a coluna `classe`). Não foi treinado o alvo "12 minutos à frente" nem feita a comparação com a regra "repetir a classe atual". Por isso o artefato é um **detector** do estado atual, e o nome preditor não se aplica.
+- [x] **O teste foi medido uma vez** para esta árvore. O script rodou duas vezes (a segunda com `--repetir`, só para corrigir o cálculo do F1 macro dos fluxos não vistos quando falta uma classe); a árvore, os dados e os números do teste são idênticos nas duas. A profundidade e a folha mínima foram escolhidas só na validação. Antes do ajuste da Tarefa 4 foi feita uma contagem de linhas com `n5_timeout` ≥ 3 por bloco, inclusive no teste (0 linhas); ela não entrou na escolha dos parâmetros.
+- [x] **O teste é fácil para os casos raros:** não tem nenhuma linha com `n5_timeout` ≥ 3, então não mede a correção feita na Tarefa 4. Essa correção só aparece na validação.
+- [x] **Limitações:** baseline fixo de 7 dias não acompanha troca de rota (Beauharnois → Melbourne tem 43% de FALHA no Período B, o que sugere mudança de patamar ou MAD muito pequeno; não foi investigado a fundo); a rajada de 3 pacotes estima mal o jitter e só permite perda de 0, 33, 67 ou 100%; Anchors não são a rede do campus; são só 8 fluxos e um caminho curto; o desbalanceamento por fluxo vem do MAD pequeno de alguns fluxos.
 
 ## 5. Ficha da árvore
 
 | Campo | Conteúdo |
 |---|---|
-| Problema | Classificação de estado (OK, RISCO ou FALHA) via desvio do RTT normalizado |
+| Problema | Detectar o estado (OK, RISCO ou FALHA) de uma medição pelo desvio do RTT, da perda e do jitter em relação ao baseline do próprio fluxo |
+|---|---|
 | Unidade | Uma medição de um `fluxo_id` no Período B |
-| Baseline | Período A (mediana e MAD, com piso mínimo de 1.500 RTTs válidos) |
-| Colunas | Features numéricas do dataset filtrado (incluindo `delta_z_robusto`) |
-| Árvore | `DecisionTreeClassifier(criterion='gini', max_depth=6, min_samples_leaf=50, ccp_alpha=0.001, random_state=42)` |
-| Teste (uma vez) | Métricas extraídas do relatório de validação/teste temporal |
-| O que ela não faz | Não predice distâncias geográficas nem opera em fluxos desprovidos de ficha de baseline |
-| Como reproduzir | `requirements.txt`, script da Tarefa 4/5, configurações em `config/` |
+| Baseline | Período A (mediana, MAD, jitter típico e perda típica, com piso de 1.500 RTT válidos), congelado |
+| Colunas | `z_robusto`, `aumento_pct`, `jitter_relativo`, `perda_pct`, `timeout_atual`, `n5_timeout`, `n5_aumento80`, `n5_risco` |
+| Árvore | `DecisionTreeClassifier(criterion='gini', max_depth=5, min_samples_leaf=2, ccp_alpha=0.0, random_state=42)`; 12 folhas; fit só no treino |
+| Teste (uma vez) | 6.034 linhas; F1 macro 0,9995; recall de FALHA 1,0000; recall de RISCO 0,9976; 2 erros (RISCO previsto como OK) |
+| Fluxos não vistos | 8 fluxos separados um a um; recall de OK ≥ 0,9985; pior caso Feira de Santana → Dubai, recall de FALHA 0,4483 |
+| O que ela não faz | Não prevê o estado 12 minutos à frente; não opera em fluxo sem ficha de baseline (menos de 1.500 RTT válidos no período inicial); não acompanha troca de rota; não descobre falhas que a tabela de rotulagem não define |
+| Como reproduzir | `pip install -r requirements.txt`, depois `coleta_bruta.py`, `baseline_rotulagem.py`, `arvore_inicial.py`, `ajuste_arvore.py` e `arvore_final.py`; parâmetros em `config/` (`config_arvore.json`) |
 
 ## 6. Scrum e diário
 
