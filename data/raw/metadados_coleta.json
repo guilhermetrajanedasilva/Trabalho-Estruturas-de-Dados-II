@@ -2,7 +2,7 @@
   "projeto": "NetVision",
   "tarefa": "Tarefa 1 - coleta bruta (sem rotulo)",
   "fonte": "RIPE Atlas API v2 (GET) - medicoes mesh de ping IPv4",
-  "timestamp_execucao_utc": "2026-11-01T23:20:23Z",
+  "timestamp_execucao_utc": "2026-11-01T22:40:25Z",
   "periodo_a": {
     "inicio_utc": "2026-09-06T04:32:00Z",
     "fim_utc": "2026-09-13T04:32:00Z"
