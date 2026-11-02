@@ -1,4 +1,0 @@
-exemplo,timestamp,timestamp_epoch,fluxo_id,rtt_ms,jitter_ms,z_robusto,aumento_pct,jitter_relativo,perda_pct,timeout_atual,n5_timeout,n5_aumento80,criterio_risco_atual,n5_risco,regra_disparada,classe,split
-"OK em caminho longo (RTT alto, z_robusto baixo)",2026-09-13T04:33:48Z,1789274028,7586|80.77.4.60,369.8674686666666,0.0352809512957595,-0.6814754525910938,-0.8713344796954631,0.4944714030920216,0.0,0,0,0,0,0,6_ok,OK,treino
-RISCO,2026-09-13T14:34:00Z,1789310040,6878|143.205.170.32,26.284154,0.299808186966266,3.2202838972872225,0.9944239626349027,4.344847958718776,0.0,0,0,0,1,2,5_risco,RISCO,treino
-FALHA (caminho curto ou timeout),2026-09-13T21:47:03Z,1789336023,6891|63.222.248.5,,,,,,100.0,1,1,0,0,1,1_perda,FALHA,treino
