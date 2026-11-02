@@ -64,7 +64,7 @@ Não entram: país, IP, `rota_id`, `fluxo_id`, nome do destino, RTT em milissegu
 * **Importância das colunas:** `z_robusto` 0,73; `n5_risco` 0,14; `jitter_relativo` 0,12; `perda_pct` 0,01; `aumento_pct` e `n5_timeout` perto de 0
 * **Arquivo resultante:** `models/arvore_tarefa3.joblib`; regras em `reports/t3_regras.txt`
 
-**Regras lidas da árvore** (as 6 folhas com mais amostras; as 14 estão em `reports/t3_regras.csv`):
+**Regras lidas da árvore** (as 6 folhas com mais amostras; as 14 estão em `reports/t3_regras.txt`):
 
 1. SE z_robusto <= 2,01 E jitter_relativo <= 3,00 E perda_pct <= 16,67 E n5_timeout <= 0,50 ENTÃO OK  *(folha com 7310 amostras)*
 2. SE z_robusto > 3,50 ENTÃO FALHA  *(folha com 1239 amostras)*
@@ -123,7 +123,7 @@ Treinar outra árvore, no mesmo treino, acrescentando a rota ou o RTT absoluto.
 **O que a árvore de contraste usou na raiz:** foram treinadas duas árvores de contraste no mesmo treino e com os mesmos parâmetros da árvore oficial (`models` não salvos; resultados em `reports/t3_contraste.json`). País de origem e de destino entraram como colunas 0/1.
 
 1. **Colunas oficiais + `rtt_ms` + país:** a raiz continuou sendo `z_robusto` ≤ 2,10, F1 macro 0,9991 (igual à oficial), e `rtt_ms` e país ficaram com importância zero. Quando as métricas relativas estão disponíveis, a árvore não precisa da distância. O atalho não apareceu aqui.
-2. **Somente `rtt_ms` + país (sem métricas relativas):** a raiz é `destino_AU` (país de destino = Austrália) e a coluna mais importante é `rtt_ms` (importância 0.82). O F1 macro cai para **0,8889** e o recall de RISCO para 0,6438. Ela classifica pelo fluxo, não pelo desvio: na validação, `7258|202.87.175.244` (Richterswil → Perth) saiu com 0 OK, 280 RISCO e 224 FALHA, enquanto Feira de Santana → Dubai e Osasco → Feldkirch saíram 100% OK (503 e 503 linhas), qualquer que fosse o que acontecia no enlace. Ela aprendeu "esta rota costuma ser assim" e não "este fluxo se afastou do próprio normal".
+2. **Somente `rtt_ms` + país (sem métricas relativas):** a raiz é `destino_AU` (país de destino = Austrália) e a coluna mais importante é `rtt_ms` (importância 0,82). O F1 macro cai para **0,8889** e o recall de RISCO para 0,6438. Ela classifica pelo fluxo, não pelo desvio: na validação, `7258|202.87.175.244` (Richterswil → Perth) saiu com 0 OK, 280 RISCO e 224 FALHA, enquanto Feira de Santana → Dubai e Osasco → Feldkirch saíram 100% OK (503 e 503 linhas), qualquer que fosse o que acontecia no enlace. Ela aprendeu "esta rota costuma ser assim" e não "este fluxo se afastou do próprio normal".
 
 Essa árvore fica **fora da entrega final**. O modelo do projeto é a árvore oficial, só com métricas relativas.
 
