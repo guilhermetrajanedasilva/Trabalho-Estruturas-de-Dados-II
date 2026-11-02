@@ -3,9 +3,11 @@
 **Período:** 05/10/2026 a 11/10/2026  
 **Projeto:** Preditor de degradação de rede com RTT normalizado (independente da rota)
 
-**Equipe:**  
-**Scrum Master da tarefa:** Guilherme Trajane da Silva
-**Repositório GitHub:** 
+**Equipe:** NetVision - Visualização e análise de dados de rede
+
+**Integrantes:** Mariana Moreira Barbosa, Samara Fernandes Soares, Leandro do Nascimento Lemes, Guilherme Trajane da Silva, Vitor Julião Diogo dos Santos
+
+**Scrum Master:** Guilherme Trajane da Silva
 
 > O rótulo e o baseline da Tarefa 2 continuam. O corte temporal continua. Esta tarefa **não troca o algoritmo**: ajusta a mesma árvore de decisão com o que a Tarefa 3 errou.
 >
