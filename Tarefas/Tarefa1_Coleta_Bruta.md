@@ -55,9 +55,9 @@ Cada registro bruto guarda, quando a API trouxer:
 | Campo | Unidade | Papel agora |
 |---|---|---|
 | `timestamp` | UTC | Ordenar o fluxo |
-| `measurement_id` | — | Identidade da medição(1001) |
+| `measurement_id` | — | Identidade da medição mesh de cada par (8 IDs, gravados em `config/config_coleta.json`) |
 | `probe_id` | — | Origem(ID da sonda RIPE Atlas) |
-| `dst_addr` | — | Destino(Endereço IP do alvo, 193.0.14.129) |
+| `dst_addr` | — | Destino (IPv4 da anchor do par; 8 destinos distintos) |
 | `fluxo_id` | texto estável | `probe_id\|dst_addr` |
 | RTT da rajada (médio; mín/máx se existirem) | ms | Medição. Vazio se não houver resposta. **Nunca 0** |
 | enviados, recebidos | contagem | Quantidade de pacotes ICMP enviados e recebidos |
@@ -79,22 +79,29 @@ Regras da coleta:
 
 **Evidências (notebook, commit, trecho do config):**
 
-- Script de coleta (Link do Collab) - https://colab.research.google.com/github/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II/blob/principal/2_Coleta_de_dados.ipynb#scrollTo=aNGRm6al7pDb
-
-- Link dos Commits (GitHub) - https://github.com/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II/commits/principal/2_Coleta_de_dados.ipynb
-
-- Trecho dos parâmetros e requisição:
-  ```python
-  MEASUREMENT_ID = 1001
-  FORMATO_TABELAR = "parquet"
-
-  URL = f"https://atlas.ripe.net/api/v2/measurements/{MEASUREMENT_ID}/results/"
-  PARAMETROS = {
-      "start": int(inicio_utc.timestamp()),
-      "stop": int(fim_utc.timestamp()),
-      "format": "json",
-      "limit": 100
+- Script de coleta: `coleta_bruta.py` (repositório: https://github.com/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II). Ele valida os pares, descobre o `measurement_id` de cada par pela API, baixa o JSON em blocos de 24 h e gera a tabela bruta e o relatório de qualidade.
+- Pares: dos 10 pares formados, 8 ficaram na coleta. As sondas 7457 (Camaçari → 185.34.2.114) e 7682 (Mississauga → 92.60.13.86) vieram com JSON vazio na medição mesh, nos dois períodos, e foram retirados. Os pares foram renumerados de 1 a 8.
+- Versão anterior (histórico): notebook `2_Coleta_de_dados.ipynb`, que usava a medição 1001 e foi substituído pelo script. Commits: https://github.com/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II/commits/principal/2_Coleta_de_dados.ipynb
+- Trecho de `config/config_coleta.json` (períodos e um dos pares; os parâmetros não ficam no código):
+  ```json
+  {
+    "api_base": "https://atlas.ripe.net/api/v2",
+    "periodo_a": {"inicio_utc": "2026-09-06T04:32:00Z", "fim_utc": "2026-09-13T04:32:00Z"},
+    "periodo_b": {"inicio_utc": "2026-09-13T04:32:00Z", "fim_utc": "2026-09-20T04:32:00Z"},
+    "http": {"timeout_s": 60, "max_tentativas": 5, "espera_base_s": 2, "tamanho_bloco_horas": 24},
+    "pares": [
+      {"par_id": 1, "probe_id": 7586, "probe_cidade": "Cochabamba", "probe_pais": "BO",
+        "anchor_id": 2825, "dst_addr": "80.77.4.60", "anchor_cidade": "Dubai", "anchor_pais": "AE",
+        "measurement_id": 34466562}
+    ]
   }
+  ```
+- Trecho da requisição (somente `GET`, com timeout e releitura em erro transitório; o filtro por sonda é `probe_ids`):
+  ```python
+  dados = http_get_json(cfg, f"{cfg['api_base']}/measurements/{par['measurement_id']}/results/",
+                        {"start": t, "stop": stop, "probe_ids": par["probe_id"], "format": "json"})
+  ```
+- Coleta idempotente: se `data/raw/json/m{measurement_id}_probe{probe_id}_periodo{A|B}.json` já existe, o script não baixa de novo e nunca sobrescreve o JSON. Rodar duas vezes não duplica nem altera dados.
 
 ## 3. Relatório de qualidade — ainda sem classe
 
@@ -105,11 +112,28 @@ Regras da coleta:
 - [x] Quantidade de timeouts
 - [x] RTT e perda descritos (mínimo, mediana, máximo) **sem** dizer OK, RISCO ou FALHA
 
-**N° bruto:** 2.178.902 registros
+**N° bruto:** 39.677 registros (19.547 no Período A e 20.130 no Período B), sem duplicatas
 
-**N° de fluxos:** 10 fluxos totais coletados
+**N° de fluxos:** 8 fluxos `probe → anchor` (de 10 pares formados; 2 retirados por não terem dado)
 
-**Caminho curto e caminho longo presentes (quais):Caminhos curtos (regionais/nacionais) e caminhos longos (transoceânicos): BR→JP (mediana de ~277 ms), e BR→IN (mediana de ~339 ms) e BR→ZA (mediana de ~344 ms).
+**Qualidade geral (sem classe):** 88 timeouts preservados no arquivo; RTT ausente em 88 medições (vazio, nunca 0); jitter ausente em 188 (rajadas com menos de 2 respostas); nenhuma linha fora da janela do próprio período; Período A e Período B sem sobreposição; SHA-256 de cada JSON bruto registrado em `data/raw/metadados_coleta.json`.
+
+**Por fluxo (relatório de qualidade):**
+
+| par | Fluxo | Rota | Registros | A | B | Início (UTC) | Fim (UTC) | RTT ausente | Timeouts | RTT mín / mediana / máx (ms) | Perda mín / mediana / máx (%) |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | 7586\|80.77.4.60 | Cochabamba (BO) → Dubai (AE) | 5.037 | 2.518 | 2.519 | 06/09 04:33 | 20/09 04:29 | 0 | 0 | 336,7 / 374,4 / 484,5 | 0 / 0 / 66,7 |
+| 2 | 6891\|63.222.248.5 | Belo Horizonte (BR) → Dubai (AE) | 5.034 | 2.518 | 2.516 | 06/09 04:35 | 20/09 04:31 | 1 | 1 | 349,4 / 368,0 / 446,3 | 0 / 0 / 100 |
+| 3 | 7307\|37.252.245.94 | Feira de Santana (BR) → Dubai (AE) | 4.990 | 2.475 | 2.515 | 06/09 04:34 | 20/09 04:30 | 66 | 66 | 306,1 / 346,0 / 709,8 | 0 / 0 / 100 |
+| 4 | 7508\|94.199.170.201 | Osasco (BR) → Feldkirch (AT) | 5.019 | 2.506 | 2.513 | 06/09 04:32 | 20/09 04:28 | 7 | 7 | 198,7 / 199,3 / 279,3 | 0 / 0 / 100 |
+| 5 | 6878\|143.205.170.32 | Minsk (BY) → Klagenfurt (AT) | 4.490 | 1.970 | 2.520 | 06/09 04:33 | 20/09 04:29 | 0 | 0 | 25,8 / 26,0 / 46,7 | 0 / 0 / 0 |
+| 6 | 6719\|203.41.0.51 | Beauharnois (CA) → Melbourne (AU) | 5.036 | 2.520 | 2.516 | 06/09 04:34 | 20/09 04:31 | 2 | 2 | 225,8 / 228,6 / 666,7 | 0 / 0 / 100 |
+| 7 | 7258\|202.87.175.244 | Richterswil (CH) → Perth (AU) | 5.036 | 2.520 | 2.516 | 06/09 04:34 | 20/09 04:30 | 8 | 8 | 268,8 / 342,0 / 462,9 | 0 / 0 / 100 |
+| 8 | 7656\|103.153.238.101 | Satigny (CH) → Sydney (AU) | 5.035 | 2.520 | 2.515 | 06/09 04:34 | 20/09 04:30 | 4 | 4 | 292,5 / 299,7 / 838,0 | 0 / 0 / 100 |
+
+O fluxo de Minsk tem menos registros no Período A (1.970) porque a medição tem lacunas nesse período; ele ainda passa do piso de 1.500 da Tarefa 2.
+
+**Caminho curto e caminho longo presentes (quais):** Caminho curto: Minsk (BY) → Klagenfurt (AT), mediana de ~26 ms. Caminhos longos (mediana entre 199 e 374 ms): Osasco → Feldkirch (~199 ms), Beauharnois → Melbourne (~229 ms), Satigny → Sydney (~300 ms), Richterswil → Perth (~342 ms), Feira de Santana → Dubai (~346 ms), Belo Horizonte → Dubai (~368 ms) e Cochabamba → Dubai (~374 ms). A diversidade geográfica (BO→AE, BR→AE, BR→AT, BY→AT, CA→AU, CH→AU) está só na auditoria e não virou classe. Há um único caminho curto.
 
 ## 4. Scrum
 
