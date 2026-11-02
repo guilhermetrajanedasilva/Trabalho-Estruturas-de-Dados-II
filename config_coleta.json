@@ -1,0 +1,112 @@
+{
+  "api_base": "https://atlas.ripe.net/api/v2",
+  "periodo_a": {
+    "inicio_utc": "2026-09-06T04:32:00Z",
+    "fim_utc": "2026-09-13T04:32:00Z"
+  },
+  "periodo_b": {
+    "inicio_utc": "2026-09-13T04:32:00Z",
+    "fim_utc": "2026-09-20T04:32:00Z"
+  },
+  "http": {
+    "timeout_s": 60,
+    "max_tentativas": 5,
+    "espera_base_s": 2,
+    "tamanho_bloco_horas": 24
+  },
+  "auditoria": {
+    "caminho_curto_ate_ms": 50,
+    "caminho_longo_a_partir_ms": 150,
+    "amostra_linhas_por_fluxo": 200
+  },
+  "pares": [
+    {
+      "par_id": 1,
+      "probe_id": 7586,
+      "probe_cidade": "Cochabamba",
+      "probe_pais": "BO",
+      "anchor_id": 2825,
+      "dst_addr": "80.77.4.60",
+      "anchor_cidade": "Dubai",
+      "anchor_pais": "AE",
+      "measurement_id": 34466562
+    },
+    {
+      "par_id": 2,
+      "probe_id": 6891,
+      "probe_cidade": "Belo Horizonte",
+      "probe_pais": "BR",
+      "anchor_id": 3387,
+      "dst_addr": "63.222.248.5",
+      "anchor_cidade": "Dubai",
+      "anchor_pais": "AE",
+      "measurement_id": 51454782
+    },
+    {
+      "par_id": 3,
+      "probe_id": 7307,
+      "probe_cidade": "Feira de Santana",
+      "probe_pais": "BR",
+      "anchor_id": 1213,
+      "dst_addr": "37.252.245.94",
+      "anchor_cidade": "Dubai",
+      "anchor_pais": "AE",
+      "measurement_id": 15872959
+    },
+    {
+      "par_id": 4,
+      "probe_id": 7508,
+      "probe_cidade": "Osasco",
+      "probe_pais": "BR",
+      "anchor_id": 1370,
+      "dst_addr": "94.199.170.201",
+      "anchor_cidade": "Feldkirch",
+      "anchor_pais": "AT",
+      "measurement_id": 18840705
+    },
+    {
+      "par_id": 5,
+      "probe_id": 6878,
+      "probe_cidade": "Minsk",
+      "probe_pais": "BY",
+      "anchor_id": 2248,
+      "dst_addr": "143.205.170.32",
+      "anchor_cidade": "Klagenfurt",
+      "anchor_pais": "AT",
+      "measurement_id": 26365043
+    },
+    {
+      "par_id": 6,
+      "probe_id": 6719,
+      "probe_cidade": "Beauharnois",
+      "probe_pais": "CA",
+      "anchor_id": 3743,
+      "dst_addr": "203.41.0.51",
+      "anchor_cidade": "Melbourne",
+      "anchor_pais": "AU",
+      "measurement_id": 68443192
+    },
+    {
+      "par_id": 7,
+      "probe_id": 7258,
+      "probe_cidade": "Richterswil",
+      "probe_pais": "CH",
+      "anchor_id": 4302,
+      "dst_addr": "202.87.175.244",
+      "anchor_cidade": "Perth",
+      "anchor_pais": "AU",
+      "measurement_id": 107969426
+    },
+    {
+      "par_id": 8,
+      "probe_id": 7656,
+      "probe_cidade": "Satigny",
+      "probe_pais": "CH",
+      "anchor_id": 4542,
+      "dst_addr": "103.153.238.101",
+      "anchor_cidade": "Sydney",
+      "anchor_pais": "AU",
+      "measurement_id": 153102772
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "piso_rtt_validos_periodo_a": 1500,
+  "mad_escala": 1.4826,
+  "iqr_divisor": 1.349,
+  "denominador_minimo_ms": 1.0,
+  "janela_ultimas_n": 5,
+  "limiares": {
+    "falha_perda_pct": 10,
+    "falha_n5_timeout": 3,
+    "falha_z_robusto": 3.5,
+    "falha_n5_aumento80": 2,
+    "aumento_alto_pct": 80,
+    "risco_z_min": 2,
+    "risco_aumento_min_pct": 30,
+    "risco_aumento_max_pct": 80,
+    "risco_jitter_relativo": 3,
+    "risco_n5_risco_min": 2
+  },
+  "recorte": {"treino": 0.50, "validacao": 0.20, "teste": 0.30, "passo_ajuste": 0.05}
+}
