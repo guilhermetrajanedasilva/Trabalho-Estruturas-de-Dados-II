@@ -5,7 +5,7 @@
 
 **Equipe:**  NetVision - Visualização e análise de dados de rede 
 
-**Integrantes** Mariana Moreira Barbosa, Samara Fernandes Soares, Leandro do Nascimento Lemes, Guilherme Trajane da Silva, Vitor Julião Diogo dos Santos
+Mariana Moreira Barbosa, Samara Fernandes Soares, Leandro do Nascimento Lemes, Guilherme Trajane da Silva, Vitor Julião Diogo dos Santos
 
 **Scrum Master da tarefa:** Vitor Julião Diogo dos Santos
 
