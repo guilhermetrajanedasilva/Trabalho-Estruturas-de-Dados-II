@@ -1,0 +1,9 @@
+par_id,probe_id,anchor_id,dst_addr_config,ip_anchor_api,ip_confere,status_probe_hoje,obs
+1,7586,2825,80.77.4.60,80.77.4.60,True,Connected,
+2,6891,3387,63.222.248.5,63.222.248.5,True,Disconnected,
+3,7307,1213,37.252.245.94,37.252.245.94,True,Connected,
+4,7508,1370,94.199.170.201,94.199.170.201,True,Connected,
+5,6878,2248,143.205.170.32,143.205.170.32,True,Connected,
+6,6719,3743,203.41.0.51,203.41.0.51,True,Connected,
+7,7258,4302,202.87.175.244,202.87.175.244,True,Connected,
+8,7656,4542,103.153.238.101,103.153.238.101,True,Written Off,

@@ -1,0 +1,94 @@
+{
+  "projeto": "NetVision",
+  "tarefa": "Tarefa 1 - coleta bruta (sem rotulo)",
+  "fonte": "RIPE Atlas API v2 (GET) - medicoes mesh de ping IPv4",
+  "timestamp_execucao_utc": "2026-11-01T23:20:23Z",
+  "periodo_a": {
+    "inicio_utc": "2026-09-06T04:32:00Z",
+    "fim_utc": "2026-09-13T04:32:00Z"
+  },
+  "periodo_b": {
+    "inicio_utc": "2026-09-13T04:32:00Z",
+    "fim_utc": "2026-09-20T04:32:00Z"
+  },
+  "pares": [
+    {
+      "par_id": 1,
+      "probe_id": 7586,
+      "anchor_id": 2825,
+      "dst_addr": "80.77.4.60",
+      "measurement_id": 34466562
+    },
+    {
+      "par_id": 2,
+      "probe_id": 6891,
+      "anchor_id": 3387,
+      "dst_addr": "63.222.248.5",
+      "measurement_id": 51454782
+    },
+    {
+      "par_id": 3,
+      "probe_id": 7307,
+      "anchor_id": 1213,
+      "dst_addr": "37.252.245.94",
+      "measurement_id": 15872959
+    },
+    {
+      "par_id": 4,
+      "probe_id": 7508,
+      "anchor_id": 1370,
+      "dst_addr": "94.199.170.201",
+      "measurement_id": 18840705
+    },
+    {
+      "par_id": 5,
+      "probe_id": 6878,
+      "anchor_id": 2248,
+      "dst_addr": "143.205.170.32",
+      "measurement_id": 26365043
+    },
+    {
+      "par_id": 6,
+      "probe_id": 6719,
+      "anchor_id": 3743,
+      "dst_addr": "203.41.0.51",
+      "measurement_id": 68443192
+    },
+    {
+      "par_id": 7,
+      "probe_id": 7258,
+      "anchor_id": 4302,
+      "dst_addr": "202.87.175.244",
+      "measurement_id": 107969426
+    },
+    {
+      "par_id": 8,
+      "probe_id": 7656,
+      "anchor_id": 4542,
+      "dst_addr": "103.153.238.101",
+      "measurement_id": 153102772
+    }
+  ],
+  "registros_json": 39677,
+  "registros_tabela": 39677,
+  "duplicatas_removidas_da_tabela": 0,
+  "fluxos_com_dados": 8,
+  "sha256_json_bruto": {
+    "m107969426_probe7258_periodoA.json": "399ee3589ad66a73b250b08fe22350a28f3a431acd61f1a0aa955be4820cd7a2",
+    "m107969426_probe7258_periodoB.json": "0680d1c5e7beaed5733dbc966187b6c26a318920016335dfd6f1d7e65dc3c51d",
+    "m153102772_probe7656_periodoA.json": "29cbbac63a8bd8c7631b537850babd52a2d663ef1232dd6643367b8e85870446",
+    "m153102772_probe7656_periodoB.json": "9581285b208e3b0e76b8a53e40a887b0d7b40ea65751a15a44a396e02f080ba7",
+    "m15872959_probe7307_periodoA.json": "299b4b164ec0a8e19109ea49241bcd847dcd7d4c2a17d6e3880419888678f428",
+    "m15872959_probe7307_periodoB.json": "dccd3e6e01cdb801773108297d1ea98db07b92bdc2e9e8dd95d961f1004d29aa",
+    "m18840705_probe7508_periodoA.json": "201a5cfa01bb9eae8d0ce8f59b0faef17d571ec74c60c5b74944061a7c6bfea5",
+    "m18840705_probe7508_periodoB.json": "e273ae85a0f2d92d9af1be903473cc28b335d49f44fe7a77acc67b7b16700d3d",
+    "m26365043_probe6878_periodoA.json": "87240e12bf6c06792828643cbb8769ddb46aba7b3460a5c7d0dc335ca40be2f6",
+    "m26365043_probe6878_periodoB.json": "487d39b834e971fb44b95381d1d199b70699ee1d6d9b86c22fb35da93d7e841f",
+    "m34466562_probe7586_periodoA.json": "584067cabfb68fb8fcb5a3013dd9717594259f536c068c73c02d23ca0f8dc5ab",
+    "m34466562_probe7586_periodoB.json": "1423b2bdee96b75d453cbdbb8e91d4cd47736c8921d7610d91695d9194f9735d",
+    "m51454782_probe6891_periodoA.json": "ad5e96076d04d42e2d39e436d1c30edc85e0f883d6be390c5858fc3f3ed9b30c",
+    "m51454782_probe6891_periodoB.json": "bfc247c9d675a9ff4777cdedfee780a842d4220aa2d1ac79ef75ec56dc10dac9",
+    "m68443192_probe6719_periodoA.json": "017acac9b0c0da40abd06345ce541e91910ec9ae1af9f2a3b720cbd457ca9be1",
+    "m68443192_probe6719_periodoB.json": "564603c0899f862ec480b89d2cdc703737643465db26bceca469c15d914cec3f"
+  }
+}
