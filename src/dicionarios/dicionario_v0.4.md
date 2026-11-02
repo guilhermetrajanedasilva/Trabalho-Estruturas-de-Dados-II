@@ -24,10 +24,9 @@ Importância na árvore final: `z_robusto` 0,72; `n5_risco` 0,14; `jitter_relati
 | :--- | :--- |
 | `models/arvore_final.joblib` | Árvore final |
 | `reports/arvore_final.png` | Figura da árvore (o vetor `value` de cada nó segue a ordem [FALHA, OK, RISCO]) |
-| `reports/t5_regras.csv`, `t5_regras.txt` | 12 regras em português |
+| `reports/t5_regras.txt` | 12 regras em português |
 | `reports/t5_teste_unico.json` | **Trava do teste**: resultado, data/hora UTC da medição e `repetido` (se foi rodado com `--repetir`) |
-| `reports/t5_caso_acerto.csv`, `t5_erros_teste.csv` | Caso de acerto em caminho longo estável; os 2 erros do teste |
-| `reports/t5_teste_por_fluxo.csv` | Linhas e erros do teste por fluxo |
+| `reports/t5_erros_teste.csv` | Os 2 erros do teste |
 | `reports/t5_fluxos_nao_vistos.csv` | Leave-one-flow-out: métricas por fluxo separado (`f1_macro_classes_presentes` considera só as classes que existem no fluxo) |
 | `reports/t5_fluxos_nao_vistos_erros.csv` | Erros do leave-one-flow-out |
 
