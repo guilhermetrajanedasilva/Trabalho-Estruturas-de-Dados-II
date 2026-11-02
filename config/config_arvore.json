@@ -1,0 +1,66 @@
+{
+  "random_state": 42,
+  "tarefa3": {
+    "criterion": "gini",
+    "class_weight": null,
+    "grade_max_depth": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      10
+    ],
+    "grade_min_samples_leaf": [
+      5,
+      20,
+      50,
+      100
+    ]
+  },
+  "tarefa4": {
+    "grade_criterion": [
+      "gini",
+      "entropy"
+    ],
+    "grade_max_depth": [
+      3,
+      4,
+      5,
+      6,
+      8
+    ],
+    "grade_min_samples_leaf": [
+      2,
+      3,
+      5,
+      20,
+      50,
+      100
+    ],
+    "grade_ccp_alpha": [
+      0.0,
+      0.0005,
+      0.001,
+      0.002
+    ],
+    "grade_class_weight": [
+      null,
+      "balanced"
+    ],
+    "grade_colunas": [
+      "oficiais",
+      "oficiais+delta_z_robusto"
+    ]
+  },
+  "final": {
+    "criterion": "gini",
+    "max_depth": 5,
+    "min_samples_leaf": 2,
+    "ccp_alpha": 0.0,
+    "class_weight": null,
+    "random_state": 42,
+    "colunas": "oficiais"
+  }
+}
