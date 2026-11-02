@@ -1,10 +1,12 @@
 # RFC: Preditor de degradação de rede com RTT normalizado
 
-> Um RFC formaliza o problema, o contrato dos dados e o critério de decisão antes de se investir no classificador. Este documento escolhe a **representação** do fenômeno (RTT normalizado por fluxo). A família do algoritmo (árvore, floresta, boosting ou outro) fica para a etapa de modelagem, escolhida na validação.
+> Um RFC formaliza o problema, o contrato dos dados e o critério de decisão antes de se investir no classificador. Este documento escolhe a **representação** do fenômeno (RTT normalizado por fluxo). A família do algoritmo (árvore, floresta, boosting ou outro) ficou para a etapa de modelagem; a disciplina adotou a árvore de decisão (ver a atualização de 02/11/2026).
 
 ---
 
 > **Atualização de 01/11/2026:** números, fluxos e arquivos desta RFC foram alinhados à coleta real do Grupo 15 (8 fluxos, 39.677 registros) e aos scripts `coleta_bruta.py` e `baseline_rotulagem.py`.
+
+> **Atualização de 02/11/2026 (Tarefas 3 a 5):** a família do algoritmo foi escolhida: árvore de decisão CART (`DecisionTreeClassifier`, Gini, `max_depth` 5, `min_samples_leaf` 2, 12 folhas), com as 8 colunas relativas e treinada só no treino. Foi entregue o **detector** do estado atual. O **preditor de 12 minutos não foi treinado** e a comparação com a persistência não foi feita; por isso o artefato é um detector. No teste temporal (6.034 linhas, medido uma vez): F1 macro 0,9995, recall de FALHA 1,0000. A árvore reaprende a política de rotulagem, porque o rótulo usa as mesmas métricas que ela recebe. Detalhes e limitações em `Tarefa3_Arvore_Inicial.md`, `Tarefa4_Ajuste_da_Arvore.md` e `Tarefa5_Arvore_Final.md`.
 
 
 ---
@@ -318,7 +320,7 @@ Dois protocolos, com resultados separados.
 
 **Protocolo B — fluxos novos.** Grupos inteiros por `fluxo_id` (GroupShuffleSplit ou GroupKFold, semente fixa). Nenhum fluxo de teste aparece no treino. O baseline do fluxo de teste sai só do período inicial dele. O conjunto de teste precisa continuar cobrindo caminho curto e caminho longo. Com 8 fluxos e um único caminho curto (Minsk→Klagenfurt), reservar esse fluxo para teste deixa o treino sem caminho curto, e mantê-lo no treino deixa o teste sem ele; essa limitação deve ser registrada nos resultados.
 
-Métricas: matriz 3×3, precisão, recall e F1 por classe, F1 macro, balanced accuracy, e o mesmo corte por fluxo. Comparar o preditor de 12 minutos com a regra que copia `status_atual`. Ainda não há medida dessa persistência nesta coleta; ela será calculada na Tarefa 3. Sem ganho sobre a persistência, o artefato é um detector, e o nome preditor não se sustenta.
+Métricas: matriz 3×3, precisão, recall e F1 por classe, F1 macro, balanced accuracy, e o mesmo corte por fluxo. Comparar o preditor de 12 minutos com a regra que copia `status_atual`. Essa persistência **não foi medida** nas Tarefas 3 a 5, porque o alvo de 12 minutos não foi construído (atualização de 02/11/2026). Sem ganho sobre a persistência, o artefato é um detector, e o nome preditor não se sustenta.
 
 ---
 
@@ -345,9 +347,9 @@ Métricas: matriz 3×3, precisão, recall e F1 por classe, F1 macro, balanced ac
 ## 11. Critérios de sucesso
 
 1. Nenhum fluxo de teste contribui para o próprio baseline, e nenhuma feature usa país, IP ou rota.
-2. No teste temporal, o detector separa OK, RISCO e FALHA com F1 macro acima da classe majoritária, e o recall de FALHA fica explícito.
-3. O preditor de 12 minutos supera a persistência de `status_atual` no mesmo teste. Se não superar, a entrega declara o sistema como detector.
-4. No teste por fluxos novos, depois do aquecimento, um caminho longo estável não colapsa em FALHA e um caminho curto degradado não colapsa em OK.
+2. No teste temporal, o detector separa OK, RISCO e FALHA com F1 macro acima da classe majoritária, e o recall de FALHA fica explícito. **Atendido:** F1 macro 0,9995 e recall de FALHA 1,0000 (com a ressalva de que a árvore reaprende a tabela de rótulo).
+3. O preditor de 12 minutos supera a persistência de `status_atual` no mesmo teste. Se não superar, a entrega declara o sistema como detector. **Não avaliado:** o preditor não foi treinado; a entrega é declarada como detector.
+4. No teste por fluxos novos, depois do aquecimento, um caminho longo estável não colapsa em FALHA e um caminho curto degradado não colapsa em OK. **Atendido na maior parte:** com cada fluxo separado do treino, o recall de OK ficou entre 0,9985 e 1,0000 e o fluxo curto (Minsk→Klagenfurt) teve 100% de acerto. Exceção: Feira de Santana→Dubai, com recall de FALHA de 0,4483 (perda parcial).
 5. Exemplos auditáveis: um caminho longo estável (por exemplo Cochabamba→Dubai ou Satigny→Sydney) como OK; um fluxo curto (Minsk→Klagenfurt) com aumento persistente como RISCO ou FALHA; timeout persistente como FALHA; um patamar novo e estável encaminhado a RECALIBRAR quando essa regra estiver ativa.
 6. Model card e dicionário alinhados às colunas que o `Pipeline` de fato consome.
 
