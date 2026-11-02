@@ -1,28 +1,3 @@
-#!/usr/bin/env python3
-"""
-Tarefa 1 — Coleta bruta (sem rótulo) — Projeto NetVision (Grupo 15)
-
-Coleta, via API do RIPE Atlas (somente GET), o dado CRU de ping IPv4 das medições
-mesh de Anchors para os 10 pares probe -> anchor definidos em config/config_coleta.json.
-
-O que este script faz
-  1. Valida os pares (anchor/probe) na API — apenas informativo, não altera os pares.
-  2. Descobre o measurement_id (ping IPv4 mesh) cujo destino é a anchor de cada par
-     e grava no config (não fica fixo no código).
-  3. Baixa o JSON original em dois blocos contíguos, sem sobreposição:
-       Período A (só para o baseline da Tarefa 2) e Período B (será rotulado na Tarefa 2).
-     Coleta idempotente: se o JSON já existe, não baixa de novo e nunca o sobrescreve.
-  4. Monta a tabela bruta (sem classe) em data/raw/ping_bruto.csv.
-  5. Gera o relatório de qualidade (sem OK/RISCO/FALHA) e os metadados com SHA-256.
-
-O que este script NÃO faz: classe, baseline, mediana de referência, z_robusto, split, árvore.
-
-Uso
-  python tarefa1_coleta_bruta.py                      # raiz do projeto = pasta do script
-  python tarefa1_coleta_bruta.py --base-dir /caminho  # ex.: pasta no Google Drive
-  python tarefa1_coleta_bruta.py --so-tabela          # refaz tabela/relatório sem usar a rede
-  python tarefa1_coleta_bruta.py --forcar-recoleta    # rebaixa os JSON (só se for intencional)
-"""
 import argparse
 import hashlib
 import json
@@ -392,12 +367,15 @@ def main():
     ap = argparse.ArgumentParser(description="Tarefa 1 — coleta bruta RIPE Atlas (sem rótulo)")
     ap.add_argument("--base-dir", type=Path, default=Path(__file__).resolve().parent,
                     help="raiz do projeto (contém config/ e recebe data/ e reports/)")
+    ap.add_argument("--drive", nargs="?", const="", default=None, metavar="PASTA",
+                    help="Google Colab: salva tudo em Meu Drive/PASTA (padrão: netvision)")
     ap.add_argument("--forcar-recoleta", action="store_true", help="rebaixa e sobrescreve os JSON brutos")
     ap.add_argument("--so-tabela", action="store_true", help="não acessa a rede: reconstrói tabela e relatório")
     ap.add_argument("--pular-validacao", action="store_true", help="não valida os pares na API")
     args = ap.parse_args()
 
-    pastas = pastas_do_projeto(args.base_dir.resolve())
+    from drive_colab import resolver_base
+    pastas = pastas_do_projeto(resolver_base(args.base_dir, args.drive))
     caminho_cfg, cfg = carregar_config(pastas)
     janelas = periodos(cfg)
     print(f"Período A: {cfg['periodo_a']} | Período B: {cfg['periodo_b']} | pares: {len(cfg['pares'])}")
