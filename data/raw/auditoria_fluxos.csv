@@ -1,0 +1,9 @@
+fluxo_id,par_id,probe_pais,probe_cidade,anchor_pais,anchor_cidade,dst_addr
+6719|203.41.0.51,6,CA,Beauharnois,AU,Melbourne,203.41.0.51
+6878|143.205.170.32,5,BY,Minsk,AT,Klagenfurt,143.205.170.32
+6891|63.222.248.5,2,BR,Belo Horizonte,AE,Dubai,63.222.248.5
+7258|202.87.175.244,7,CH,Richterswil,AU,Perth,202.87.175.244
+7307|37.252.245.94,3,BR,Feira de Santana,AE,Dubai,37.252.245.94
+7508|94.199.170.201,4,BR,Osasco,AT,Feldkirch,94.199.170.201
+7586|80.77.4.60,1,BO,Cochabamba,AE,Dubai,80.77.4.60
+7656|103.153.238.101,8,CH,Satigny,AU,Sydney,103.153.238.101
