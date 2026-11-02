@@ -1,0 +1,14 @@
+SE z_robusto <= 2,01 E jitter_relativo <= 3,00 E perda_pct <= 16,67 E n5_timeout <= 0,50 ENTÃO OK
+SE z_robusto > 3,50 ENTÃO FALHA
+SE 2,10 < z_robusto <= 3,50 E perda_pct <= 16,67 E n5_risco > 1,50 ENTÃO RISCO
+SE z_robusto <= 2,10 E jitter_relativo > 3,00 E n5_risco > 1,50 ENTÃO RISCO
+SE z_robusto <= 2,10 E aumento_pct <= 2,05 E jitter_relativo > 3,00 E n5_risco <= 1,50 ENTÃO OK
+SE 2,10 < z_robusto <= 3,50 E n5_risco <= 1,50 ENTÃO OK
+SE z_robusto <= 2,01 E jitter_relativo <= 3,00 E perda_pct <= 16,67 E n5_timeout > 0,50 ENTÃO OK
+SE z_robusto <= 2,10 E 2,05 < aumento_pct <= 3,37 E jitter_relativo > 3,00 E n5_risco <= 1,50 ENTÃO OK
+SE 2,01 < z_robusto <= 2,10 E jitter_relativo <= 3,00 E perda_pct <= 16,67 E n5_risco <= 1,50 ENTÃO OK
+SE 2,01 < z_robusto <= 2,10 E jitter_relativo <= 3,00 E perda_pct <= 16,67 E n5_risco > 1,50 ENTÃO RISCO
+SE z_robusto <= 2,10 E jitter_relativo <= 3,00 E perda_pct > 16,67 ENTÃO FALHA
+SE 2,10 < z_robusto <= 3,50 E perda_pct > 16,67 E n5_risco > 1,50 ENTÃO FALHA
+SE z_robusto <= 2,10 E aumento_pct > 3,37 E jitter_relativo > 5,34 E n5_risco <= 1,50 ENTÃO OK
+SE z_robusto <= 2,10 E aumento_pct > 3,37 E 3,00 < jitter_relativo <= 5,34 E n5_risco <= 1,50 ENTÃO OK

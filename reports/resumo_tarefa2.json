@@ -1,0 +1,36 @@
+{
+  "inspecao": {
+    "n_bruto": 39677,
+    "n_fluxos": 8,
+    "duplicatas": 0,
+    "rtt_vazio": 88,
+    "rtt_gravado_como_zero_ou_negativo": 0,
+    "jitter_zero_com_menos_de_2_respostas": 0,
+    "timeouts": 88,
+    "linhas_fora_de_A_e_B": 0,
+    "fluxos_com_timestamp_em_A_e_B": 0,
+    "n_periodo_A": 19547,
+    "n_periodo_B": 20130,
+    "json_bruto_alterado_ou_ausente": []
+  },
+  "fluxos_com_ficha": 8,
+  "fluxos_excluidos": [],
+  "contagem_classes_B": {
+    "OK": 14897,
+    "RISCO": 2447,
+    "FALHA": 2786
+  },
+  "recorte": {
+    "proporcao": [
+      0.5,
+      0.2,
+      0.3
+    ],
+    "ajustada": false,
+    "n": {
+      "treino": 10067,
+      "validacao": 4029,
+      "teste": 6034
+    }
+  }
+}

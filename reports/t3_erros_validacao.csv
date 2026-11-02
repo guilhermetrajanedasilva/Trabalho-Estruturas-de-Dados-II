@@ -1,0 +1,3 @@
+fluxo_id,timestamp,rtt_ms,z_robusto,aumento_pct,jitter_relativo,perda_pct,timeout_atual,n5_timeout,n5_aumento80,n5_risco,classe,previsto,tipo
+7656|103.153.238.101,2026-09-16 21:34:41+00:00,295.2605673333333,-15.842138685202755,-1.4639443665328742,1.1517222469335602,0.0,0,3,0,0,FALHA,OK,erro da validação
+7656|103.153.238.101,2026-09-16 21:38:47+00:00,294.230749,-19.56125345704512,-1.807621266913332,1.0272439992541629,0.0,0,3,0,0,FALHA,OK,erro da validação
