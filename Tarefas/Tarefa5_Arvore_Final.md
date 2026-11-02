@@ -3,13 +3,13 @@
 **Período:** 12/10/2026 a 25/10/2026  
 **Projeto:** Preditor de degradação de rede com RTT normalizado (independente da rota)
 
+**Equipe:**  NetVision - Visualização e análise de dados de rede 
 
+**Integrantes** Mariana Moreira Barbosa, Samara Fernandes Soares, Leandro do Nascimento Lemes, Guilherme Trajane da Silva, Vitor Julião Diogo dos Santos
 
-**Equipe:** Mariana Moreira Barbosa, Samara Fernandes Soares, Leandro do Nascimento Lemes, Guilherme Trajane da Silva, Vitor Julião Diogo dos Santos
+**Scrum Master da tarefa:** Samara Fernandes Soares
 
-**Scrum Master da tarefa:**  Samara Fernandes Soares
-
-**Repositório GitHub:**
+**Repositório GitHub:**  https://github.com/guilhermetrajanedasilva/Trabalho-Estruturas-de-Dados-II
 
 > A árvore que entra aqui é a da Tarefa 4. O baseline e o rótulo são os da Tarefa 2. O teste, guardado desde a Tarefa 2, é medido **uma vez**.
 >
