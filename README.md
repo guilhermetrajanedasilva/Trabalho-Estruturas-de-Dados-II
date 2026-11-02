@@ -1,4 +1,4 @@
-# NetVision — Preditor de degradação de rede com RTT normalizado
+# NetVision — Visualização e análise de dados de rede
 
 ## Objetivo
 O **NetVision** é um projeto integrador da disciplina de Estrutura de Dados II. Ele constrói um pipeline de dados que coleta medições de ping (ICMP) já existentes na rede pública do RIPE Atlas, estima o **normal de cada fluxo** e classifica cada medição em **OK**, **RISCO** ou **FALHA** em relação a esse normal.
