@@ -3,9 +3,11 @@
 **Período:** 28/09/2026 a 04/10/2026  
 **Projeto:** Preditor de degradação de rede com RTT normalizado (independente da rota)
 
-**Equipe:**  
-**Scrum Master da tarefa:**  
-**Repositório GitHub:**
+**Equipe:** NetVision - Visualização e análise de dados de rede
+
+**Integrantes:** Mariana Moreira Barbosa, Samara Fernandes Soares, Leandro do Nascimento Lemes, Guilherme Trajane da Silva, Vitor Julião Diogo dos Santos
+
+**Scrum Master da tarefa:** Vitor Julião Diogo dos Santos
 
 > Tarefa 1 coletou. Tarefa 2 fez o baseline e o rótulo. Esta tarefa **não refaz** a ficha nem a tabela de classes.
 >
