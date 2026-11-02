@@ -1,0 +1,26 @@
+{
+  "entradas_permitidas": [
+    "z_robusto",
+    "aumento_pct",
+    "jitter_relativo",
+    "perda_pct",
+    "timeout_atual",
+    "n5_timeout",
+    "n5_aumento80",
+    "n5_risco"
+  ],
+  "alvo": "classe",
+  "proibidas": [
+    "fluxo_id",
+    "pais",
+    "ip / dst_addr",
+    "rota_id",
+    "timestamp",
+    "rtt_ms (RTT absoluto)",
+    "jitter_ms (absoluto)",
+    "regra_disparada",
+    "criterio_risco_atual",
+    "split",
+    "classe (é o alvo, não entrada)"
+  ]
+}
