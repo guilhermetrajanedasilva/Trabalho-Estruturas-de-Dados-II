@@ -1,14 +1,6 @@
 # RFC: Preditor de degradação de rede com RTT normalizado
 
 > Um RFC formaliza o problema, o contrato dos dados e o critério de decisão antes de se investir no classificador. Este documento escolhe a **representação** do fenômeno (RTT normalizado por fluxo). A família do algoritmo (árvore, floresta, boosting ou outro) ficou para a etapa de modelagem; a disciplina adotou a árvore de decisão (ver a atualização de 02/11/2026).
-
----
-
-> **Atualização de 01/11/2026:** números, fluxos e arquivos desta RFC foram alinhados à coleta real do Grupo 15 (8 fluxos, 39.677 registros) e aos scripts `coleta_bruta.py` e `baseline_rotulagem.py`.
-
-> **Atualização de 02/11/2026 (Tarefas 3 a 5):** a família do algoritmo foi escolhida: árvore de decisão CART (`DecisionTreeClassifier`, Gini, `max_depth` 5, `min_samples_leaf` 2, 12 folhas), com as 8 colunas relativas e treinada só no treino. Foi entregue o **detector** do estado atual. O **preditor de 12 minutos não foi treinado** e a comparação com a persistência não foi feita; por isso o artefato é um detector. No teste temporal (6.034 linhas, medido uma vez): F1 macro 0,9995, recall de FALHA 1,0000. A árvore reaprende a política de rotulagem, porque o rótulo usa as mesmas métricas que ela recebe. Detalhes e limitações em `Tarefa3_Arvore_Inicial.md`, `Tarefa4_Ajuste_da_Arvore.md` e `Tarefa5_Arvore_Final.md`.
-
-
 ---
 
 ## 1. Resumo
