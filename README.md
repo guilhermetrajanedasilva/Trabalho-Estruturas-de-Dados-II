@@ -138,6 +138,13 @@ Use a mesma pasta em todas as tarefas. Como a Tarefa 1 baixa da API se a pasta n
 
 ---
 
+## Links para a Mostra
+
+- **Link do artigo (página web):** https://netvisionpreditordefalhas.app/
+- **Link do vídeo pitch do Youtube:** https://www.youtube.com/watch?v=_4TjYdOS5so
+
+---
+
 ## Integrantes do grupo
 
 - **Guilherme Trajane da Silva**
