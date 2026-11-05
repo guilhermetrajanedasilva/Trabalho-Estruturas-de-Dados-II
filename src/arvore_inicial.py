@@ -1,17 +1,3 @@
-#!/usr/bin/env python3
-"""
-Tarefa 3 — Primeira árvore de decisão — Projeto NetVision (Grupo 15)
-
-Usa o baseline, o rótulo e o corte da Tarefa 2 (data/processed/dataset_rotulado_B.csv), sem refazê-los.
-  1. Escolhe max_depth e min_samples_leaf olhando SÓ a validação (o teste não é carregado).
-  2. Ajusta (fit) a árvore oficial só no treino, com as colunas relativas ao baseline.
-  3. Registra profundidade, folhas, divisões e regras em português; matriz 3x3, F1 por classe e F1 macro.
-  4. Lista erros concretos da validação (fluxo, timestamp, métricas, classe real e prevista).
-  5. Treina árvores de contraste (com RTT absoluto e rota) só para mostrar o atalho da distância.
-     A árvore de contraste NÃO é o modelo do projeto.
-
-Uso: python arvore_inicial.py [--base-dir CAMINHO]
-"""
 import argparse
 import itertools
 from pathlib import Path
