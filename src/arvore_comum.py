@@ -1,9 +1,3 @@
-"""
-Funções comuns das Tarefas 3, 4 e 5 (árvore de decisão) — Projeto NetVision (Grupo 15)
-
-Não é um script de execução: é importado por arvore_inicial.py, ajuste_arvore.py e arvore_final.py.
-Usa o MESMO baseline, o MESMO rótulo e o MESMO corte da Tarefa 2 (data/processed/dataset_rotulado_B.csv).
-"""
 import json
 import sys
 from pathlib import Path
