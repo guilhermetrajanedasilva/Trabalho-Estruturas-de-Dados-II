@@ -1,16 +1,3 @@
-"""
-Salvar no Google Drive (Google Colab) — Projeto NetVision (Grupo 15)
-
-Usado por todos os scripts com a opção --drive. No Colab, monta o Drive e usa uma pasta dentro de "Meu Drive"
-como raiz do projeto: data/, reports/ e models/ passam a ser gravados lá. Se a pasta ainda não tem config/,
-copia a config/ que está ao lado dos scripts.
-
-Exemplos (numa célula do Colab, depois de enviar a pasta do projeto):
-  !python coleta_bruta.py --drive                 # usa MyDrive/netvision
-  !python coleta_bruta.py --drive projeto_g15     # usa MyDrive/projeto_g15
-Cria a pasta (com data/raw, data/interim, data/processed, reports e models) se ela não existir; se já existir, só grava nela.
-Use a MESMA pasta em todas as tarefas, para a Tarefa 2 achar o bruto da Tarefa 1, e assim por diante.
-"""
 import shutil
 from pathlib import Path
 
