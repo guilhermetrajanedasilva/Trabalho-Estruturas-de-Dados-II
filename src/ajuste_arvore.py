@@ -1,18 +1,3 @@
-#!/usr/bin/env python3
-"""
-Tarefa 4 — Ajuste da árvore a partir do erro — Projeto NetVision (Grupo 15)
-
-Mantém o rótulo, o baseline e o corte da Tarefa 2 e NÃO troca o algoritmo (continua CART).
-Ajustes permitidos: profundidade, mínimo de amostras na folha, critério (Gini/entropia), poda (ccp_alpha),
-peso de classes e uma coluna relativa nova (tendência do z_robusto: `delta_z_robusto`).
-
-  1. Lê o resultado e os erros da Tarefa 3 (reports/t3_*.json|csv).
-  2. Busca a configuração com melhor F1 macro NA VALIDAÇÃO (o teste não é carregado).
-  3. Compara Tarefa 3 -> Tarefa 4 (F1 macro e recalls), lista as mudanças e grava os parâmetros em
-     config/config_arvore.json ("final"), que a Tarefa 5 vai usar.
-
-Uso: python ajuste_arvore.py [--base-dir CAMINHO]
-"""
 import argparse
 import itertools
 import json
