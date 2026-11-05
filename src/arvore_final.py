@@ -1,18 +1,3 @@
-#!/usr/bin/env python3
-"""
-Tarefa 5 — Árvore final e teste único — Projeto NetVision (Grupo 15)
-
-A árvore é a da Tarefa 4 (parâmetros em config/config_arvore.json, chave "final"). O baseline, o rótulo e o corte são
-os da Tarefa 2. O teste temporal é medido UMA vez: o script grava reports/t5_teste_unico.json e se recusa a medir de
-novo (a não ser com --repetir, que fica registrado). A árvore NÃO é reescolhida olhando o teste.
-
-  1. Ajusta a árvore só no treino e mede o teste: matriz 3x3, precisão/recall/F1 por classe, F1 macro.
-  2. Fluxos que a árvore não viu: para cada fluxo, treina SEM esse fluxo e avalia nele. A ficha de baseline do fluxo
-     sai só do Período A dele (a mesma da Tarefa 2), então a mediana e o MAD não usam o trecho avaliado.
-  3. Gera regras em português, figura da árvore e a ficha da árvore.
-
-Uso: python arvore_final.py [--base-dir CAMINHO] [--drive [PASTA]] [--repetir]
-"""
 import argparse
 import json
 from datetime import datetime, timezone
